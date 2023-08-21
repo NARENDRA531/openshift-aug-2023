@@ -317,3 +317,38 @@ boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
 root@ubuntu1:/# <b>exit</b>
 exit  
 </pre>
+
+## Creating and starting a container in foreground/interactive mode
+```
+docker run -it --name ubuntu3 --hostname ubuntu3 ubuntu:22.04 /bin/bash
+ls
+hostname -i
+hostname
+exit
+docker ps -a
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker run -it --name ubuntu3 --hostname ubuntu3 ubuntu:22.04 /bin/bash
+root@ubuntu3:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+  
+root@ubuntu3:/# hostname -i
+172.17.0.4
+  
+root@ubuntu3:/# hostname
+ubuntu3
+  
+root@ubuntu3:/# exit
+exit
+  
+[jegan@tektutor ~]$ docker ps -a
+CONTAINER ID   IMAGE                COMMAND       CREATED          STATUS                      PORTS     NAMES
+a0aa59478b56   ubuntu:22.04         "/bin/bash"   49 seconds ago   Exited (0) 6 seconds ago              ubuntu3
+9882f69ac653   ubuntu:22.04         "/bin/bash"   11 minutes ago   Up 11 minutes                         ubuntu2
+264695929f6f   ubuntu:22.04         "/bin/bash"   11 minutes ago   Up 11 minutes                         ubuntu1
+7fe9a87f8843   hello-world:latest   "/hello"      17 minutes ago   Exited (0) 17 minutes ago             hello2
+67e1e8a43c53   hello-world:latest   "/hello"      17 minutes ago   Exited (0) 17 minutes ago             hello  
+</pre>
