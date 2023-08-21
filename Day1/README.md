@@ -125,3 +125,28 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </pre>
+
+## Lab - Listing containers
+
+Listing only the running container
+```
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES  
+</pre>
+
+Listing all containers
+```
+docker ps -a
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker ps -a
+CONTAINER ID   IMAGE                COMMAND    CREATED         STATUS                     PORTS     NAMES
+3f058eceb743   hello-world:latest   "/hello"   6 minutes ago   Exited (0) 6 minutes ago             frosty_tesla
+</pre>
