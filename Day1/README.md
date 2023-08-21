@@ -550,7 +550,7 @@ ubuntu                  22.04     01f29b872827   2 weeks ago      77.8MB
 hello-world             latest    9c7a54a9a43c   3 months ago     13.3kB  
 </pre>
 
-## Setting up a Load Balancer with nginx
+## ⛹️‍♂️ Lab - Setting up a Load Balancer with nginx
 
 Let us create 3 web server containers named web1, web2 and web3 respectively as shown below.
 
