@@ -318,7 +318,7 @@ root@ubuntu1:/# <b>exit</b>
 exit  
 </pre>
 
-## Creating and starting a container in foreground/interactive mode
+## ⛹️‍♀️ Lab - Creating and starting a container in foreground/interactive mode
 ```
 docker run -it --name ubuntu3 --hostname ubuntu3 ubuntu:22.04 /bin/bash
 ls
@@ -330,21 +330,22 @@ docker ps -a
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker run -it --name ubuntu3 --hostname ubuntu3 ubuntu:22.04 /bin/bash
-root@ubuntu3:/# ls
+[jegan@tektutor ~]$ <b>docker run -it --name ubuntu3 --hostname ubuntu3 ubuntu:22.04 /bin/bash</b>
+  
+root@ubuntu3:/# <b>ls</b>
 bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
 boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
   
-root@ubuntu3:/# hostname -i
+root@ubuntu3:/# <b>hostname -i</b>
 172.17.0.4
   
-root@ubuntu3:/# hostname
+root@ubuntu3:/# <b>hostname</b>
 ubuntu3
   
-root@ubuntu3:/# exit
+root@ubuntu3:/# <b>exit</b>
 exit
   
-[jegan@tektutor ~]$ docker ps -a
+[jegan@tektutor ~]$ <b>docker ps -a</b>
 CONTAINER ID   IMAGE                COMMAND       CREATED          STATUS                      PORTS     NAMES
 a0aa59478b56   ubuntu:22.04         "/bin/bash"   49 seconds ago   Exited (0) 6 seconds ago              ubuntu3
 9882f69ac653   ubuntu:22.04         "/bin/bash"   11 minutes ago   Up 11 minutes                         ubuntu2
