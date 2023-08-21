@@ -507,7 +507,7 @@ a0aa59478b56
 67e1e8a43c53  
 </pre>
 
-## Building Custom Docker image with the required tools
+## ⛹️‍♂️ Lab -   Building Custom Docker image with the required tools
 ```
 cd ~/openshift-aug-2023
 git pull
