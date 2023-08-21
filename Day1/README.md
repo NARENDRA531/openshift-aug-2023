@@ -669,9 +669,9 @@ http {
 	}
 }
 ```
-In the above file, IP addresses below to web1, web2 and web3 containers.
+In the above file, IP addresses belongs to web1, web2 and web3 containers respectively.
 
-You my check the IP address of your web1, web2, web3 and lb containers as shown below and modify the above file accordingly
+You may check the IP address of your web1, web2, web3 and lb containers as shown below and modify the above file accordingly
 ```
 docker inspect web1 | grep IPA
 docker inspect -f {{.NetworkSettings.IPAddress}} web2
