@@ -71,6 +71,8 @@ exit
 - Docker containers are created using Docker images
 - Docker images are similar to VMWare images or Windows 10/11 ISO images
 - Just like we are able to install any number of Windows 10 OS with Windows 10 ISO image, we can create any number of mysql containers with mysql docker image
+- 
+![Image Layers](img-layers.png)
 
 ## What is a Docker Container?
 - is the running instance of a Docker Image
