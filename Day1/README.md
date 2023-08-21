@@ -431,7 +431,7 @@ a0aa59478b56   ubuntu:22.04         "/bin/bash"   49 seconds ago   Exited (0) 6 
 67e1e8a43c53   hello-world:latest   "/hello"      17 minutes ago   Exited (0) 17 minutes ago             hello  
 </pre>
 
-## Copying files from local system to container and vice versa
+## ⛹️‍♀️ Lab - Copying files from local system to container and vice versa
 ```
 echo "My file" > file1.txt
 ls
