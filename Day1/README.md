@@ -506,3 +506,46 @@ a0aa59478b56
 7fe9a87f8843
 67e1e8a43c53  
 </pre>
+
+## Building Custom Docker image with the required tools
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day1/CustomMavenImageUsingAlpineBaseImage
+docker build -t tektutor/alpine-maven:latest .
+```
+
+Expected output
+<pre>
+[jegan@tektutor Day1]$ mkdir CustomMavenImageUsingAlpineBaseImage
+[jegan@tektutor Day1]$ cd CustomMavenImageUsingAlpineBaseImage/
+[jegan@tektutor CustomMavenImageUsingAlpineBaseImage]$ ls
+[jegan@tektutor CustomMavenImageUsingAlpineBaseImage]$ vim Dockerfile
+[jegan@tektutor CustomMavenImageUsingAlpineBaseImage]$ docker build -t tektutor/alpine-maven:latest .
+[+] Building 16.3s (6/6) FINISHED                                                                docker:default
+ => [internal] load build definition from Dockerfile                                                       0.0s
+ => => transferring dockerfile: 199B                                                                       0.0s
+ => [internal] load .dockerignore                                                                          0.0s
+ => => transferring context: 2B                                                                            0.0s
+ => [internal] load metadata for docker.io/library/alpine:latest                                           2.9s
+ => [1/2] FROM docker.io/library/alpine:latest@sha256:7144f7bab3d4c2648d7e59409f15ec52a18006a128c733fcff2  0.9s
+ => => resolve docker.io/library/alpine:latest@sha256:7144f7bab3d4c2648d7e59409f15ec52a18006a128c733fcff2  0.0s
+ => => sha256:7144f7bab3d4c2648d7e59409f15ec52a18006a128c733fcff20d3a4a54ba44a 1.64kB / 1.64kB             0.0s
+ => => sha256:c5c5fda71656f28e49ac9c5416b3643eaa6a108a8093151d6d1afc9463be8e33 528B / 528B                 0.0s
+ => => sha256:7e01a0d0a1dcd9e539f8e9bbd80106d59efbdf97293b3d38f5d7a34501526cdb 1.47kB / 1.47kB             0.0s
+ => => sha256:7264a8db6415046d36d16ba98b79778e18accee6ffa71850405994cffa9be7de 3.40MB / 3.40MB             0.4s
+ => => extracting sha256:7264a8db6415046d36d16ba98b79778e18accee6ffa71850405994cffa9be7de                  0.4s
+ => [2/2] RUN apk add openjdk11 maven                                                                      8.9s
+ => exporting to image                                                                                     3.5s 
+ => => exporting layers                                                                                    3.5s 
+ => => writing image sha256:65ba5804352b94b8843dc71e58dcf5b7a831f36879f63d4d22d2760b1ce34e82               0.0s 
+ => => naming to docker.io/tektutor/alpine-maven:latest    
+  0.0s 
+[jegan@tektutor CustomMavenImageUsingAlpineBaseImage]$ docker images                                            
+REPOSITORY              TAG       IMAGE ID       CREATED          SIZE                                          
+tektutor/alpine-maven   latest    65ba5804352b   7 seconds ago    283MB
+tektutor/maven          latest    e9721a66d076   5 minutes ago    705MB
+tektutor/ubuntu         22.04     f39f6625541c   14 minutes ago   123MB
+ubuntu                  22.04     01f29b872827   2 weeks ago      77.8MB
+hello-world             latest    9c7a54a9a43c   3 months ago     13.3kB  
+</pre>
