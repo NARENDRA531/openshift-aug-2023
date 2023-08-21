@@ -77,7 +77,18 @@ exit
 - each Container get its own IP address, Network Stack, File System
 - each container represents one application
 - though running many applications per container is possible, it is considered a bad practice as it uses supervisord utility to spin off child process and monitors them constantly, which is overhead and defeats the purpose of containers
-- 
+
+## Linux Kernel features that enable container technology
+- Linux Kernel supports the below features which are used by container softwares
+  1. Namespace
+     - helps in isolating one container from the other container by running them in different namespace
+  2. Control Group (CGroup)
+     - helps in apply resource quota restrictions on containers
+     - example
+       - we can restrict how many cpu cores at the max a container can use at any point
+       - we can restrict the max amount of RAM a container can utilize at any point of time
+       - we can restrict the max storage a container can use 
+
 # Docker Commands
 
 ### ⛹️‍♂️ Lab - Checking the Docker version installed on your system
@@ -418,4 +429,48 @@ a0aa59478b56   ubuntu:22.04         "/bin/bash"   49 seconds ago   Exited (0) 6 
 264695929f6f   ubuntu:22.04         "/bin/bash"   11 minutes ago   Up 11 minutes                         ubuntu1
 7fe9a87f8843   hello-world:latest   "/hello"      17 minutes ago   Exited (0) 17 minutes ago             hello2
 67e1e8a43c53   hello-world:latest   "/hello"      17 minutes ago   Exited (0) 17 minutes ago             hello  
+</pre>
+
+## Copying files from local system to container and vice versa
+```
+echo "My file" > file1.txt
+ls
+docker cp file1.txt ubuntu1:/
+echo "file inside ubuntu1 container" > file2.txt
+exit
+docker cp ubuntu1:/file2.txt .
+ls
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ echo "My file" > file1.txt
+[jegan@tektutor ~]$ ls
+Desktop    Downloads  google-chrome-stable_current_x86_64.rpm  Pictures  Templates
+Documents  file1.txt  Music  
+
+[jegan@tektutor ~]$ docker cp file1.txt ubuntu1:/
+Successfully copied 2.05kB to ubuntu1:/
+  
+[jegan@tektutor ~]$ docker exec -it ubuntu1 bash
+root@ubuntu1:/# ls
+bin   dev  file1.txt  lib    lib64   media  opt   root  sbin  sys  usr
+boot  etc  home       lib32  libx32  mnt    proc  run   srv   tmp  var
+  
+root@ubuntu1:/# cat file1.txt 
+My file
+  
+root@ubuntu1:/# echo "file from docker container" > file2.txt
+root@ubuntu1:/# ls
+bin   dev  file1.txt  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  file2.txt  lib   lib64  media   opt  root  sbin  sys  usr
+root@ubuntu1:/# exit
+exit
+  
+[jegan@tektutor ~]$ docker cp ubuntu1:/file2.txt .
+Successfully copied 2.05kB to /home/jegan/.
+  
+[jegan@tektutor ~]$ ls
+Desktop    Downloads  file2.txt                                Music     Public     Videos
+Documents  file1.txt  google-chrome-stable_current_x86_64.rpm  Pictures  Templates
 </pre>
