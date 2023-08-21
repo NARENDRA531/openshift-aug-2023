@@ -722,13 +722,13 @@ Assuming, everything worked as expected so far, let's customize the web1, web2 a
 
 ```
 echo "Nginx Web server 1" > index.html
-docker cp web1:/usr/share/nginx/html/index.html
+docker cp index.html web1:/usr/share/nginx/html/index.html
 
 echo "Nginx Web server 2" > index.html
-docker cp web2:/usr/share/nginx/html/index.html
+docker cp index.html  web2:/usr/share/nginx/html/index.html
 
 echo "Nginx Web server 3" > index.html
-docker cp web3:/usr/share/nginx/html/index.html
+docker cp index.html web3:/usr/share/nginx/html/index.html
 ```
 
 Now you may try accessing the lb IP address from your centos lab machine web browser
