@@ -203,9 +203,9 @@ docker ps -a
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker ps -a
+[jegan@tektutor ~]$ <b>docker ps -a</b>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-[jegan@tektutor ~]$ docker run --name hello1 --hostname hello1 hello-world:latest
+[jegan@tektutor ~]$ <b>docker run --name hello1 --hostname hello1 hello-world:latest</b>
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
@@ -228,7 +228,7 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
-[jegan@tektutor ~]$ docker run --name hello2 --hostname hello2 hello-world:latest
+[jegan@tektutor ~]$ <b>docker run --name hello2 --hostname hello2 hello-world:latest</b>
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
@@ -251,7 +251,7 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 
-[jegan@tektutor ~]$ docker ps -a
+[jegan@tektutor ~]$ <b>docker ps -a</b>
 CONTAINER ID   IMAGE                COMMAND    CREATED          STATUS                      PORTS     NAMES
 7fe9a87f8843   hello-world:latest   "/hello"   8 seconds ago    Exited (0) 7 seconds ago              hello2
 67e1e8a43c53   hello-world:latest   "/hello"   15 seconds ago   Exited (0) 14 seconds ago             hello1  
