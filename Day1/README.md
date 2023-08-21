@@ -551,7 +551,13 @@ hello-world             latest    9c7a54a9a43c   3 months ago     13.3kB
 </pre>
 
 ## Setting up a Load Balancer with nginx
+
+Let us create 3 web server containers named web1, web2 and web3 respectively as shown below.
+
 ```
+docker run -d --name web1 --hostname web1 nginx:latest
+docker run -d --name web2 --hostname web2 nginx:latest
+docker run -d --name web3 --hostname web3 nginx:latest
 ```
 
 Expected output
@@ -575,7 +581,11 @@ Status: Downloaded newer image for nginx:latest
   
 [jegan@tektutor ~]$ docker run -d --name web3 --hostname web3 nginx:latest
 3399fbd2873f4b50e77061fe720bd648b9df10b9ab869307d251f7c9f2901be1
-  
+</pre>
+
+
+Let us now create the load balancer container
+<pre>  
 [jegan@tektutor ~]$ docker run -d --name lb --hostname lb nginx:latest
 61a98cdbdcb2017d54600979acc27861f1998279f25f3877a01bd841165fbbbd
   
@@ -585,7 +595,109 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 3399fbd2873f   nginx:latest   "/docker-entrypoint.…"   13 seconds ago   Up 12 seconds   80/tcp    web3
 98609cc6879b   nginx:latest   "/docker-entrypoint.…"   18 seconds ago   Up 17 seconds   80/tcp    web2
 40555a6c201b   nginx:latest   "/docker-entrypoint.…"   25 seconds ago   Up 24 seconds   80/tcp    web1
+</pre>
+
+The lb container must be configured to work like a Load Balancer, as it works by default as a web server.
+
+The original nginx.conf file looks as shown below.  You may optionally copy it from lb container to local machine to check it yourself.
+```
+docker cp lb:/etc/nginx/nginx.conf .
+cat nginx.conf
+```
+
+Expected output
+```
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+}
+```
+
+The above file must be modified as shown below
+```
+
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+	upstream backend {
+		server 172.17.0.2:80;
+		server 172.17.0.3:80;
+		server 172.17.0.4:80;
+	}
+
+	server {
+		location / {
+			proxy_pass http://backend;
+		}
+	}
+}
+```
+In the above file, IP addresses below to web1, web2 and web3 containers.
+
+You my check the IP address of your web1, web2, web3 and lb containers as shown below and modify the above file accordingly
+```
+docker inspect web1 | grep IPA
+docker inspect -f {{.NetworkSettings.IPAddress}} web2
+docker inspect -f {{.NetworkSettings.IPAddress}} web3
+docker inspect -f {{.NetworkSettings.IPAddress}} lb
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker inspect web1 | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
   
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web2
+172.17.0.3
+  
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web3
+172.17.0.4
+  
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} lb
+172.17.0.5  
+</pre>  
+
+<pre>
 [jegan@tektutor ~]$ docker inspect web1 | grep IPA
             "SecondaryIPAddresses": null,
             "IPAddress": "172.17.0.2",
@@ -599,3 +711,41 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 [jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} lb
 172.17.0.5  
 </pre>
+
+We need to copy the updated nginx.conf back into the lb container as shown below
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+
+Restart the lb container to apply config changes
+```
+docker restart lb
+```
+
+Check if the lb container is still running after config changes are applied
+```
+docker ps
+```
+
+Assuming, everything worked as expected so far, let's customize the web1, web2 and web3 index.html pages in order to visualize the LB container performing round-robin load-balancing.
+
+```
+echo "Nginx Web server 1" > index.html
+docker cp web1:/usr/share/nginx/html/index.html
+
+echo "Nginx Web server 2" > index.html
+docker cp web2:/usr/share/nginx/html/index.html
+
+echo "Nginx Web server 3" > index.html
+docker cp web3:/usr/share/nginx/html/index.html
+```
+
+Now you may try accessing the lb IP address from your centos lab machine web browser
+<pre>
+http://172.17.0.5:80  
+</pre>
+
+If you try the same from your RPS windows lab machine it shouldn't work. In order to make that work, we must do port-forwaring. Let's delete the lb container
+```
+
+```
