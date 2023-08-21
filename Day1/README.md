@@ -474,3 +474,33 @@ Successfully copied 2.05kB to /home/jegan/.
 Desktop    Downloads  file2.txt                                Music     Public     Videos
 Documents  file1.txt  google-chrome-stable_current_x86_64.rpm  Pictures  Templates
 </pre>
+
+
+## Deleting a single exited container
+```
+docker rm ubuntu3
+```
+
+## Deleting a running container forcibly
+```
+docker rm -f ubuntu2
+```
+
+## Deleting a running container gracefully
+```
+docker stop ubuntu1
+docker rm ubuntu1
+```
+
+## Deleting multiple containers without calling out their names
+```
+docker rm -f $(docker ps -aq)
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker rm -f $(docker ps -aq)
+a0aa59478b56
+7fe9a87f8843
+67e1e8a43c53  
+</pre>
