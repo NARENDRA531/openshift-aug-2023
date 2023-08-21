@@ -13,16 +13,7 @@ usermod -aG docker $USER
 exit
 ```
 
-### Checking the Docker version installed on your system
-```
-docker --version
-```
 
-Expected output
-<pre>
-[jegan@tektutor ~]$ docker --version
-Docker version 24.0.5, build ced0996
-</pre>
 
 ## Processors with Multiple CPU Cores
 <pre>
@@ -90,6 +81,16 @@ Docker version 24.0.5, build ced0996
 - though running many applications per container is possible, it is considered a bad practice as it uses supervisord utility to spin off child process and monitors them constantly, which is overhead and defeats the purpose of containers
 - 
 # Docker Commands
+
+### Checking the Docker version installed on your system
+```
+docker --version
+```
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker --version</b>
+Docker version 24.0.5, build ced0996
+</pre>
 
 ## Creating your first Docker container
 ```
