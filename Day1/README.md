@@ -150,3 +150,23 @@ Expected output
 CONTAINER ID   IMAGE                COMMAND    CREATED         STATUS                     PORTS     NAMES
 3f058eceb743   hello-world:latest   "/hello"   6 minutes ago   Exited (0) 6 minutes ago             frosty_tesla
 </pre>
+
+## Lab - Renaming a container
+```
+docker ps -a
+docker rename <current-container-name> <new-container-name>
+docker ps -a
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker ps -a
+CONTAINER ID   IMAGE                COMMAND    CREATED             STATUS                         PORTS     NAMES
+3f058eceb743   hello-world:latest   "/hello"   About an hour ago   Exited (0) About an hour ago             frosty_tesla
+  
+[jegan@tektutor ~]$ docker rename frosty_tesla hello_container1
+
+[jegan@tektutor ~]$ docker ps -a
+CONTAINER ID   IMAGE                COMMAND    CREATED             STATUS                         PORTS     NAMES
+3f058eceb743   hello-world:latest   "/hello"   About an hour ago   Exited (0) About an hour ago             hello_container1  
+</pre>
