@@ -745,7 +745,44 @@ Now you may try accessing the lb IP address from your centos lab machine web bro
 http://172.17.0.5:80  
 </pre>
 
-If you try the same from your RPS windows lab machine it shouldn't work. In order to make that work, we must do port-forwaring. Let's delete the lb container
+If you try the same from your RPS windows lab machine it shouldn't work. In order to make that work, we must do port-forwarding. Let's delete the lb container
+```
+docker rm -f lb
 ```
 
+Let's recreate a new lb container, but this time let's setup port forwarding as shown below
 ```
+docker run -d --name lb --hostname lb -p 80:80 nginx:latest
+```
+
+The port 80 on the left side is exposed on the local machine, while the port 80 on the right side is where the nginx web server is listening interanally on the container.
+
+We need to copy the pre-configured nginx.conf file into our new lb container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+docker restart lb
+```
+Now you may try accessing the lb IP address from your centos lab machine web browser
+<pre>
+http://172.17.0.5:80  
+</pre>
+
+Now you may also try accessing the lb setup from your RPS windows lab machine using the IP address of your CentOS lab machine
+```
+http://192.168.1.108:80
+```
+
+You will have to find the IP address of your CentOS lab machine and change the above IP accordingly.
+
+The expected output is
+<pre>
+[jegan@tektutor NginxLBConfiguration]$ curl 172.17.0.5
+Nginx Web Server 1
+	
+[jegan@tektutor NginxLBConfiguration]$ curl 172.17.0.5
+Nginx Web Server 2
+	
+[jegan@tektutor NginxLBConfiguration]$ curl 172.17.0.5
+Nginx Web Server 3	
+	
+</pre>
