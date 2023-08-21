@@ -1,5 +1,27 @@
 # Day 1
 
+## Installing Docker in CentOS 7.x
+```
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+sudo usermod -aG docker $USER
+```
+
+### Checking the Docker version installed on your system
+```
+docker --version
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker --version
+Docker version 24.0.5, build ced0996
+</pre>
+
 ## What is Hypervisor?
 - Hypervisor is nothing but Virtualization Technology
 - Virtualization technolgy is hardware + software technology
