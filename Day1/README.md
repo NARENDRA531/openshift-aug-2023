@@ -256,3 +256,30 @@ CONTAINER ID   IMAGE                COMMAND    CREATED          STATUS          
 7fe9a87f8843   hello-world:latest   "/hello"   8 seconds ago    Exited (0) 7 seconds ago              hello2
 67e1e8a43c53   hello-world:latest   "/hello"   15 seconds ago   Exited (0) 14 seconds ago             hello1  
 </pre>
+
+## Creating containers in the background/deattached mode
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:22.04 /bin/bash
+docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:22.04 /bin/bash
+docker ps
+```
+In the above command,
+<pre>
+d - stands for deattached or background
+i - interactive
+t - terminal
+</pre>
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:22.04 /bin/bash
+264695929f6fecbf5453b2b8072e87ce8a29036c648854a96a305dda9354c61f
+  
+[jegan@tektutor ~]$ docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:22.04 /bin/bash
+9882f69ac6534523c0ee89ec05452669ab1ffa31f51b4de976e051894ba57992
+  
+[jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
+9882f69ac653   ubuntu:22.04   "/bin/bash"   2 seconds ago    Up 1 second               ubuntu2
+264695929f6f   ubuntu:22.04   "/bin/bash"   12 seconds ago   Up 11 seconds             ubuntu1 
+</pre>
