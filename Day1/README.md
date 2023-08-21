@@ -64,6 +64,7 @@ exit
 ## High Level Architecture of Hypervisor
 
 ## High Level Architecture of Docker
+![Docker Architecture](docker-architecture-1.png)
 
 ## What is a Docker Image?
 - a specification of Docker Container
