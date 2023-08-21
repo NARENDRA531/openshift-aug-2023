@@ -482,6 +482,8 @@ docker rm ubuntu3
 ```
 
 ## ⛹️‍♂️ Lab - Deleting a running container forcibly
+Deleting a running container without stopping it would result in an error.  Hence, either we need to stop it before deleting the container or we need to forcibly delete it as shown below.
+
 ```
 docker rm -f ubuntu2
 ```
