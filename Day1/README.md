@@ -170,3 +170,24 @@ CONTAINER ID   IMAGE                COMMAND    CREATED             STATUS       
 CONTAINER ID   IMAGE                COMMAND    CREATED             STATUS                         PORTS     NAMES
 3f058eceb743   hello-world:latest   "/hello"   About an hour ago   Exited (0) About an hour ago             hello_container1  
 </pre>
+
+
+## Lab - Deleting a container
+```
+docker ps -a
+docker rm hello_container1
+docker ps -a
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker ps -a
+CONTAINER ID   IMAGE                COMMAND    CREATED             STATUS                         PORTS     NAMES
+3f058eceb743   hello-world:latest   "/hello"   About an hour ago   Exited (0) About an hour ago             hello_container1
+  
+[jegan@tektutor ~]$ docker rm hello_container1 
+hello_container1
+  
+[jegan@tektutor ~]$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES  
+</pre>
