@@ -785,7 +785,74 @@ docker logs web2
 docker logs web3
 ```
 
+## Lab - Volume Mounting
+First create the /tmp/mysql folder on your CentOS RPS lab machine from terminal
+```
+mkdir -p /tmp/mysql
+```
+
+Let's create a mysql db container that uses host path volume
+```
+docker run -d --name mysql --hostname mysql -v /tmp/mysql:/var/lib/mysql - e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+```
+
+Let's get inside the mysql shell
+```
+docker exec -it mysql bash
+```
+
+Let's connect to the mysql server using mysql client on the container
+```
+mysql -u root -p
+```
+
+When prompts for password, type root@123
+
+Now let's create a database
+```
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE training ( id INT NOT NULL, name VARCHAR(100), duration VARCHAR(100), PRIMARY KEY(id) );
+INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+SELECT * FROM training;
+exit
+exit
+```
+
+Now let's delete the container
+```
+docker rm -f mysql
+```
+
+Let's create a new mysql container mounting the same local host path(volume)
+```
+docker run -d --name mysql --hostname mysql -v /tmp/mysql:/var/lib/mysql - e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+```
+
+Let's get inside the mysql shell
+```
+docker exec -it mysql bash
+```
+
+Let's connect to the mysql server using mysql client on the container
+```
+mysql -u root -p
+```
+
+When prompts for password, type root@123
+
+In the mysql prompt, see if the tektutor database and training records are accessible
+```
+SHOW DATABASES;
+USE tektutor;
+SELECT * FROM training;
+```
+
+You are expected to see the tektutor and training records as we are using volume mounting.  That's we have successfully stored the database and respective records on an external storage volume, hence we are using container's like an immutable resources as recommended by the DevOps best practice.
+
 ## Day1 - Feedback URL
 <pre>
 https://tcheck.co/nNNplc	
 </pre>
+
+
