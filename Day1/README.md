@@ -76,4 +76,15 @@ Docker version 24.0.5, build ced0996
 
 ## High Level Architecture of Docker
 
+## What is a Docker Image?
+- a specification of Docker Container
+- Whatever tools are required in the containers are installed on the Docker image
+- Docker containers are created using Docker images
+- Docker images are similar to VMWare images or Windows 10/11 ISO images
+- Just like we are able to install any number of Windows 10 OS with Windows 10 ISO image, we can create any number of mysql containers with mysql docker image
 
+## What is a Docker Container?
+- is the running instance of a Docker Image
+- each Container get its own IP address, Network Stack, File System
+- each container represents one application
+- though running many applications per container is possible, it is considered a bad practice as it uses supervisord utility to spin off child process and monitors them constantly, which is overhead and defeats the purpose of containers
