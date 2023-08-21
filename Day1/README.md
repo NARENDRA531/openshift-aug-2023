@@ -62,7 +62,7 @@ exit
 - Containers are not Operating System, they don't have OS Kernel
 - 
 ## High Level Architecture of Hypervisor
-
+![Hypervisor Architecture](architecture.png)
 ## High Level Architecture of Docker
 ![Docker Architecture](docker-architecture-1.png)
 
