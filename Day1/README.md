@@ -13,8 +13,6 @@ usermod -aG docker $USER
 exit
 ```
 
-
-
 ## Processors with Multiple CPU Cores
 <pre>
 - Intel/AMD Processors supports multiple cores on a single Processor
@@ -126,5 +124,4 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
- 
 </pre>
