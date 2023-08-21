@@ -776,3 +776,11 @@ Nginx Web Server 2
 [jegan@tektutor NginxLBConfiguration]$ curl 172.17.0.5
 Nginx Web Server 3	
 </pre>
+
+## Lab - Checking lb and web server container logs
+```
+docker logs lb
+docker logs web1
+docker logs web2
+docker logs web3
+```
