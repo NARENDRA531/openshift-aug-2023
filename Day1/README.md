@@ -151,7 +151,7 @@ CONTAINER ID   IMAGE                COMMAND    CREATED         STATUS           
 3f058eceb743   hello-world:latest   "/hello"   6 minutes ago   Exited (0) 6 minutes ago             frosty_tesla
 </pre>
 
-## Lab - Renaming a container
+## ⛹️‍♂️ Lab - Renaming a container
 ```
 docker ps -a
 docker rename <current-container-name> <new-container-name>
@@ -172,7 +172,7 @@ CONTAINER ID   IMAGE                COMMAND    CREATED             STATUS       
 </pre>
 
 
-## Lab - Deleting a container
+## ⛹️‍♂️ Lab - Deleting a container
 ```
 docker ps -a
 docker rm hello_container1
