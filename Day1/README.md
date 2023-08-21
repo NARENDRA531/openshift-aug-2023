@@ -697,20 +697,6 @@ Expected output
 172.17.0.5  
 </pre>  
 
-<pre>
-[jegan@tektutor ~]$ docker inspect web1 | grep IPA
-            "SecondaryIPAddresses": null,
-            "IPAddress": "172.17.0.2",
-                    "IPAMConfig": null,
-                    "IPAddress": "172.17.0.2",
-  
-[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web2
-172.17.0.3
-[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web3
-172.17.0.4
-[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} lb
-172.17.0.5  
-</pre>
 
 We need to copy the updated nginx.conf back into the lb container as shown below
 ```
@@ -727,7 +713,7 @@ Check if the lb container is still running after config changes are applied
 docker ps
 ```
 
-Assuming, everything worked as expected so far, let's customize the web1, web2 and web3 index.html pages in order to visualize the LB container performing round-robin load-balancing.
+Assuming, everything worked as expected so far, let's customize the web1, web2 and web3 index.html pages in order to visualize the LB container using round-robin load-balancing algorithm.
 
 ```
 echo "Nginx Web server 1" > index.html
@@ -784,5 +770,4 @@ Nginx Web Server 2
 	
 [jegan@tektutor NginxLBConfiguration]$ curl 172.17.0.5
 Nginx Web Server 3	
-	
 </pre>
