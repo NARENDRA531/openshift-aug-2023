@@ -257,7 +257,7 @@ CONTAINER ID   IMAGE                COMMAND    CREATED          STATUS          
 67e1e8a43c53   hello-world:latest   "/hello"   15 seconds ago   Exited (0) 14 seconds ago             hello1  
 </pre>
 
-## Creating containers in the background/deattached mode
+## ⛹️‍♂️ Lab - Creating containers in the background/deattached mode
 ```
 docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:22.04 /bin/bash
 docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:22.04 /bin/bash
