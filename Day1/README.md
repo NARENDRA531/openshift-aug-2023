@@ -80,7 +80,7 @@ exit
 - 
 # Docker Commands
 
-### Checking the Docker version installed on your system
+### ⛹️‍♂️ Lab - Checking the Docker version installed on your system
 ```
 docker --version
 ```
@@ -90,7 +90,7 @@ Expected output
 Docker version 24.0.5, build ced0996
 </pre>
 
-## Creating your first Docker container
+## ⛹️‍♂️ Lab - Creating your first Docker container
 ```
 docker run hello-world:latest
 ```
@@ -126,7 +126,7 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </pre>
 
-## Lab - Listing containers
+## ⛹️‍♂️ Lab - Listing containers
 
 Listing only the running container
 ```
