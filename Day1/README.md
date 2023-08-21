@@ -44,6 +44,7 @@ Docker version 24.0.5, build ced0996
 ## What is Hypervisor?
 - Hypervisor is nothing but Virtualization Technology
 - Virtualization technolgy is hardware + software technology
+- this type of virtualization is considered as heavy weight virtualization as each VM must be allocated with dedicated CPU cores, RAM and storage
 - General Purpose Processors
   - AMD
     - Virtualization feature - AMD-V
@@ -60,8 +61,17 @@ Docker version 24.0.5, build ced0996
     - Parallels
     - KVM
     - Hyper-V
+  - each Virtual Machine(VM) represents one Operating System with dedicated Hardware resources
+      
 ## What is Docker?
-
+- is an application virtualization technology
+- this is light weight virtualization technology as they don't need dedicated hardware resources
+- each container represents on running application
+- Each container get its own IP address just like Virtual Machines
+- Each container has its own file system just like Virtual Machines
+- Each container has its own Network Stack just like Virtual Machines
+- Containers are not Operating System, they don't have OS Kernel
+- 
 ## High Level Architecture of Hypervisor
 
 ## High Level Architecture of Docker
