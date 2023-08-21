@@ -285,7 +285,7 @@ CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          POR
 </pre>
 
 
-## Getting inside a container that runs in background
+## ⛹️‍♀️ Lab - Getting inside a container that runs in background
 ```
 docker ps
 docker exec -it ubuntu1 /bin/bash
@@ -297,23 +297,23 @@ exit
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker ps
+[jegan@tektutor ~]$ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
 9882f69ac653   ubuntu:22.04   "/bin/bash"   2 seconds ago    Up 1 second               ubuntu2
 264695929f6f   ubuntu:22.04   "/bin/bash"   12 seconds ago   Up 11 seconds             ubuntu1
   
-[jegan@tektutor ~]$ docker exec -it ubuntu1 /bin/bash
+[jegan@tektutor ~]$ <b>docker exec -it ubuntu1 /bin/bash</b>
   
-root@ubuntu1:/# hostname  
+root@ubuntu1:/# <b>hostname</b>
 ubuntu1
   
-root@ubuntu1:/# hostname -i
+root@ubuntu1:/# <b>hostname -i</b>
 172.17.0.2
   
-root@ubuntu1:/# ls
+root@ubuntu1:/# <b>ls</b>
 bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
 boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
   
-root@ubuntu1:/# exit
+root@ubuntu1:/# <b>exit</b>
 exit  
 </pre>
