@@ -98,7 +98,7 @@ docker run hello-world:latest
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker run hello-world:latest
+[jegan@tektutor ~]$ <b>docker run hello-world:latest</b>
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 719385e32844: Pull complete 
