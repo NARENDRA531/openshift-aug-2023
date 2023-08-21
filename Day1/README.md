@@ -283,3 +283,37 @@ CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          POR
 9882f69ac653   ubuntu:22.04   "/bin/bash"   2 seconds ago    Up 1 second               ubuntu2
 264695929f6f   ubuntu:22.04   "/bin/bash"   12 seconds ago   Up 11 seconds             ubuntu1 
 </pre>
+
+
+## Getting inside a container that runs in background
+```
+docker ps
+docker exec -it ubuntu1 /bin/bash
+hostname
+hostname -i
+ls
+exit
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
+9882f69ac653   ubuntu:22.04   "/bin/bash"   2 seconds ago    Up 1 second               ubuntu2
+264695929f6f   ubuntu:22.04   "/bin/bash"   12 seconds ago   Up 11 seconds             ubuntu1
+  
+[jegan@tektutor ~]$ docker exec -it ubuntu1 /bin/bash
+  
+root@ubuntu1:/# hostname  
+ubuntu1
+  
+root@ubuntu1:/# hostname -i
+172.17.0.2
+  
+root@ubuntu1:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+  
+root@ubuntu1:/# exit
+exit  
+</pre>
