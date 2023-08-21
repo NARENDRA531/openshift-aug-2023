@@ -476,23 +476,23 @@ Documents  file1.txt  google-chrome-stable_current_x86_64.rpm  Pictures  Templat
 </pre>
 
 
-## Deleting a single exited container
+## ⛹️‍♂️ Lab - Deleting a single exited container
 ```
 docker rm ubuntu3
 ```
 
-## Deleting a running container forcibly
+## ⛹️‍♂️ Lab - Deleting a running container forcibly
 ```
 docker rm -f ubuntu2
 ```
 
-## Deleting a running container gracefully
+## ⛹️‍♂️ Lab -  Deleting a running container gracefully
 ```
 docker stop ubuntu1
 docker rm ubuntu1
 ```
 
-## Deleting multiple containers without calling out their names
+## ⛹️‍♂️ Lab -  Deleting multiple containers without calling out their names
 ```
 docker rm -f $(docker ps -aq)
 ```
