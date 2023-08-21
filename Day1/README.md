@@ -549,3 +549,53 @@ tektutor/ubuntu         22.04     f39f6625541c   14 minutes ago   123MB
 ubuntu                  22.04     01f29b872827   2 weeks ago      77.8MB
 hello-world             latest    9c7a54a9a43c   3 months ago     13.3kB  
 </pre>
+
+## Setting up a Load Balancer with nginx
+```
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker run -d --name web1 --hostname web1 nginx:latest
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+52d2b7f179e3: Pull complete 
+fd9f026c6310: Pull complete 
+055fa98b4363: Pull complete 
+96576293dd29: Pull complete 
+a7c4092be904: Pull complete 
+e3b6889c8954: Pull complete 
+da761d9a302b: Pull complete 
+Digest: sha256:104c7c5c54f2685f0f46f3be607ce60da7085da3eaa5ad22d3d9f01594295e9c
+Status: Downloaded newer image for nginx:latest
+40555a6c201b5cb1eaaed44b880e4787ccdfb9390e98d22328df9e94d285a6e0
+  
+[jegan@tektutor ~]$ docker run -d --name web2 --hostname web2 nginx:latest
+98609cc6879b6eaa8e37db8b7e7b72a102c9a042796d3d9ba0c8b4a75eea3fdc
+  
+[jegan@tektutor ~]$ docker run -d --name web3 --hostname web3 nginx:latest
+3399fbd2873f4b50e77061fe720bd648b9df10b9ab869307d251f7c9f2901be1
+  
+[jegan@tektutor ~]$ docker run -d --name lb --hostname lb nginx:latest
+61a98cdbdcb2017d54600979acc27861f1998279f25f3877a01bd841165fbbbd
+  
+[jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+61a98cdbdcb2   nginx:latest   "/docker-entrypoint.…"   2 seconds ago    Up 1 second     80/tcp    lb
+3399fbd2873f   nginx:latest   "/docker-entrypoint.…"   13 seconds ago   Up 12 seconds   80/tcp    web3
+98609cc6879b   nginx:latest   "/docker-entrypoint.…"   18 seconds ago   Up 17 seconds   80/tcp    web2
+40555a6c201b   nginx:latest   "/docker-entrypoint.…"   25 seconds ago   Up 24 seconds   80/tcp    web1
+  
+[jegan@tektutor ~]$ docker inspect web1 | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+  
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web2
+172.17.0.3
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web3
+172.17.0.4
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} lb
+172.17.0.5  
+</pre>
