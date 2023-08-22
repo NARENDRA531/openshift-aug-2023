@@ -1129,3 +1129,19 @@ You may now access the web page from your CentOS lab web browser
 http://localhost:8080  
 </pre>
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/163102cf-e2d5-480f-9daf-75ec6e327278)
+
+## Kubernetes/OpenShift Services
+There are 3 types of Services 
+1. ClusterIP (Internal Service)
+2. NodePort (External Service)
+3. LoadBalancer (External Service meant to be used in Public Cloud Environment)
+
+## Lab - Creating an Internal ClusterIP service for nginx deployment
+```
+oc expose deploy/nginx --type=ClusterIP --port=8080
+```
+
+Expected output
+<pre>
+  
+</pre>
