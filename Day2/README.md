@@ -132,4 +132,5 @@
 - this is an enterprise product, we need buy license to use it for commercial purpose
 - supported by Red Hat ( an IBM company )
 - this provides Command Line Interface just like Kubernetes and also supports Webconsole unlike K8s
+- in other words is a Red Hat's distribution of Kubernetes
 - supports all features of K8s + many additional features 
