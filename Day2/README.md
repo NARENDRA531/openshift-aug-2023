@@ -838,7 +838,7 @@ oc explain deploy
 ```
 
 Expected output
-<pre>
+```
 ──(jegan㉿tektutor.org)-[~]
 └─$ oc explain deploy
 KIND:     Deployment
@@ -869,7 +869,7 @@ FIELDS:
 
    status	<Object>
      Most recently observed status of the Deployment.  
-</pre>
+```
 
 
 ## Lab - Creating a project to deployment your applications
