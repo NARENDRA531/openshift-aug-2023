@@ -953,3 +953,20 @@ nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission den
 NAME                     READY   STATUS             RESTARTS      AGE
 nginx-654975c8cd-rh7ws   0/1     CrashLoopBackOff   4 (25s ago)   2m27s  
 </pre>
+
+## Lab - Deleting a deployment
+```
+oc delete deploy/nginx
+oc get deploy,rs,po
+```
+
+Expected output
+<pre>                   
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc delete deploy/nginx                              
+deployment.apps "nginx" deleted
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get deploy,rs,po
+No resources found in jegan namespace.  
+</pre>
