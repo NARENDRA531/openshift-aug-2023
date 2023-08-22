@@ -1,4 +1,4 @@
-# Red Hat OpenShift 21-25th August 2023 Batch
+# Red Hat OpenShift [ 21-25th August 2023 Batch ]
 
 ## My YouTube Channel
 https://www.youtube.com/@JeganathanSwaminathan/videos
