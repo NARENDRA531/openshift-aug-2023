@@ -1110,7 +1110,7 @@ nginx-5bccb79775-bcmw9   1/1     Running   0          33s
 nginx-5bccb79775-lk9xv   1/1     Running   0          33s  
 </pre>
 
-## Lab - Setting up a port forward for a Pod for testing/debugging purpose
+## Lab - Setting up a port forward for testing/debugging Pod
 ```
 oc port-forward pod/nginx-5bccb79775-lk9xv 8080:8080
 ```
