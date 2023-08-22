@@ -970,3 +970,137 @@ deployment.apps "nginx" deleted
 └─$ oc get deploy,rs,po
 No resources found in jegan namespace.  
 </pre>
+
+## Lab - Creating a nginx deployment using bitnami nginx container image
+```
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc create deployment nginx --image=bitnami/nginx:latest
+deployment.apps/nginx created
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get deploy                                          
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   0/1     1            0           4s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get rs    
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-5bccb79775   1         1         0       7s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po   
+NAME                     READY   STATUS              RESTARTS   AGE
+nginx-5bccb79775-xdnm6   0/1     ContainerCreating   0          9s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po -w
+NAME                     READY   STATUS              RESTARTS   AGE
+nginx-5bccb79775-xdnm6   0/1     ContainerCreating   0          12s
+nginx-5bccb79775-xdnm6   1/1     Running             0          14s
+^C                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc logs nginx-5bccb79775-xdnm6
+nginx 10:40:35.76 
+nginx 10:40:35.76 Welcome to the Bitnami nginx container
+nginx 10:40:35.77 Subscribe to project updates by watching https://github.com/bitnami/containers
+nginx 10:40:35.77 Submit issues and feature requests at https://github.com/bitnami/containers/issues
+nginx 10:40:35.77 
+nginx 10:40:35.77 INFO  ==> ** Starting NGINX setup **
+nginx 10:40:35.79 INFO  ==> Validating settings in NGINX_* env vars
+Generating RSA private key, 4096 bit long modulus (2 primes)
+.............................................................++++
+...............................................++++
+e is 65537 (0x010001)
+Signature ok
+subject=CN = example.com
+Getting Private key
+nginx 10:40:36.35 INFO  ==> No custom scripts in /docker-entrypoint-initdb.d
+nginx 10:40:36.36 INFO  ==> Initializing NGINX
+realpath: /bitnami/nginx/conf/vhosts: No such file or directory
+nginx 10:40:36.41 INFO  ==> ** NGINX setup finished! **
+
+nginx 10:40:36.44 INFO  ==> ** Starting NGINX **  
+</pre>
+
+## Lab - Scaling up/down deployment
+```
+oc create deployment nginx --image=bitnami/nginx:latest
+oc get deploy
+oc get rs
+oc get po
+oc scale deploy/nginx --replicas=5
+oc get po
+oc scale deploy/nginx --replicas=3
+oc get po
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc create deployment nginx --image=bitnami/nginx:latest                                      
+deployment.apps/nginx created
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get deploy                                          
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   0/1     1            0           5s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get rs    
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-5bccb79775   1         1         1       8s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-5bccb79775-69qhd   1/1     Running   0          10s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc scale deploy/nginx --replicas=5
+deployment.apps/nginx scaled
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po -w                      
+NAME                     READY   STATUS              RESTARTS   AGE
+nginx-5bccb79775-69qhd   1/1     Running             0          20s
+nginx-5bccb79775-bcmw9   0/1     ContainerCreating   0          3s
+nginx-5bccb79775-f8g9s   0/1     ContainerCreating   0          3s
+nginx-5bccb79775-lk9xv   0/1     ContainerCreating   0          3s
+nginx-5bccb79775-tr74k   0/1     ContainerCreating   0          3s
+nginx-5bccb79775-tr74k   1/1     Running             0          5s
+nginx-5bccb79775-f8g9s   1/1     Running             0          5s
+nginx-5bccb79775-lk9xv   1/1     Running             0          6s
+nginx-5bccb79775-bcmw9   1/1     Running             0          6s
+^C                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po   
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-5bccb79775-69qhd   1/1     Running   0          27s
+nginx-5bccb79775-bcmw9   1/1     Running   0          10s
+nginx-5bccb79775-f8g9s   1/1     Running   0          10s
+nginx-5bccb79775-lk9xv   1/1     Running   0          10s
+nginx-5bccb79775-tr74k   1/1     Running   0          10s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc scale deploy/nginx --replicas=3
+deployment.apps/nginx scaled
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po                         
+NAME                     READY   STATUS        RESTARTS   AGE
+nginx-5bccb79775-69qhd   1/1     Running       0          47s
+nginx-5bccb79775-bcmw9   1/1     Running       0          30s
+nginx-5bccb79775-lk9xv   1/1     Running       0          30s
+nginx-5bccb79775-tr74k   1/1     Terminating   0          30s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-5bccb79775-69qhd   1/1     Running   0          50s
+nginx-5bccb79775-bcmw9   1/1     Running   0          33s
+nginx-5bccb79775-lk9xv   1/1     Running   0          33s  
+</pre>
