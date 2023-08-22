@@ -73,7 +73,12 @@
   - in the master nodes, a special set of components run they are called as Control Plane
   - kubelet
   - What are the Control Plane components
-    - API Server
+    - API Server┌──(jegan㉿tektutor.org)-[~]
+└─$ oc port-forward pod/nginx-5bccb79775-lk9xv 8080:8080
+Forwarding from 127.0.0.1:8080 -> 8080
+Forwarding from [::1]:8080 -> 8080
+Handling connection for 8080
+
     - etcd - key/pair datastore
     - Scheduler
     - Controller Managers
@@ -1104,3 +1109,19 @@ nginx-5bccb79775-69qhd   1/1     Running   0          50s
 nginx-5bccb79775-bcmw9   1/1     Running   0          33s
 nginx-5bccb79775-lk9xv   1/1     Running   0          33s  
 </pre>
+
+## Lab - Setting up a port forward for a Pod for testing/debugging purpose
+```
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc port-forward pod/nginx-5bccb79775-lk9xv 8080:8080
+Forwarding from 127.0.0.1:8080 -> 8080
+Forwarding from [::1]:8080 -> 8080
+Handling connection for 8080  
+</pre>
+
+You may now access the web page from your CentOS lab web browser
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/163102cf-e2d5-480f-9daf-75ec6e327278)
