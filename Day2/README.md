@@ -871,12 +871,13 @@ FIELDS:
      Most recently observed status of the Deployment.  
 </pre>
 
+
 ## Lab - Creating a project to deployment your applications
 ```
 oc new-project jegan
 ```
-Expected output
 
+Expected output
 <pre>
 ┌──(jegan㉿tektutor.org)-[~]
 └─$ oc new-project jegan
