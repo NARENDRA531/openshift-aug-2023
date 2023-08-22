@@ -875,8 +875,6 @@ FIELDS:
 ```
 oc new-project jegan
 ```
-oc new-project jegan
-```
 Expected output
 
 <pre>
