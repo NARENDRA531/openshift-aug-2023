@@ -314,3 +314,242 @@ Events:
   ----    ------          ----  ----             -------
   Normal  RegisteredNode  51m   node-controller  Node master-1.ocp.tektutor.labs event: Registered Node master-1.ocp.tektutor.labs in Controller  
 </pre>
+
+## Lab - Listing pods from all namespaces
+```
+oc get pods --all-namespaces
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get pods --all-namespaces
+NAMESPACE                                          NAME                                                         READY   STATUS      RESTARTS        AGE
+openshift-apiserver-operator                       openshift-apiserver-operator-755cfb9b4c-5k7zl                1/1     Running     1 (6h45m ago)   6h50m
+openshift-apiserver                                apiserver-59cbcb5597-29dth                                   2/2     Running     0               6h38m
+openshift-apiserver                                apiserver-59cbcb5597-psqmf                                   2/2     Running     0               6h38m
+openshift-apiserver                                apiserver-59cbcb5597-x8gsf                                   2/2     Running     0               6h37m
+openshift-authentication-operator                  authentication-operator-567b547766-zbdcm                     1/1     Running     1 (6h45m ago)   6h50m
+openshift-authentication                           oauth-openshift-7bc8477595-7m4mx                             1/1     Running     0               6h39m
+openshift-authentication                           oauth-openshift-7bc8477595-dqqlb                             1/1     Running     0               6h39m
+openshift-authentication                           oauth-openshift-7bc8477595-rl9mn                             1/1     Running     0               6h40m
+openshift-cloud-controller-manager-operator        cluster-cloud-controller-manager-operator-7d85bfc559-nkhjn   2/2     Running     0               6h52m
+openshift-cloud-credential-operator                cloud-credential-operator-8546b5744c-vvfvk                   2/2     Running     0               6h52m
+openshift-cluster-machine-approver                 machine-approver-874c4b5b6-sqc7v                             2/2     Running     0               6h52m
+openshift-cluster-node-tuning-operator             cluster-node-tuning-operator-f9876d97c-xmwrg                 1/1     Running     0               6h52m
+openshift-cluster-node-tuning-operator             tuned-b4xl9                                                  1/1     Running     0               6h35m
+openshift-cluster-node-tuning-operator             tuned-bxmm6                                                  1/1     Running     0               6h45m
+openshift-cluster-node-tuning-operator             tuned-gcv8z                                                  1/1     Running     0               6h35m
+openshift-cluster-node-tuning-operator             tuned-jwbd2                                                  1/1     Running     0               6h45m
+openshift-cluster-node-tuning-operator             tuned-s85hm                                                  1/1     Running     0               6h45m
+openshift-cluster-samples-operator                 cluster-samples-operator-7f97cd6698-fl277                    2/2     Running     1 (44m ago)     6h43m
+openshift-cluster-storage-operator                 cluster-storage-operator-754d6f56b8-96w2m                    1/1     Running     1 (6h46m ago)   6h52m
+openshift-cluster-storage-operator                 csi-snapshot-controller-9584854bf-m8gwq                      1/1     Running     0               6h47m
+openshift-cluster-storage-operator                 csi-snapshot-controller-9584854bf-msfcb                      1/1     Running     0               6h47m
+openshift-cluster-storage-operator                 csi-snapshot-controller-operator-7d99bff4d-cw9fn             1/1     Running     0               6h52m
+openshift-cluster-storage-operator                 csi-snapshot-webhook-68694997c6-hpg5d                        1/1     Running     0               6h47m
+openshift-cluster-storage-operator                 csi-snapshot-webhook-68694997c6-vff8l                        1/1     Running     0               6h47m
+openshift-cluster-version                          cluster-version-operator-59d9468478-6smj9                    1/1     Running     0               6h52m
+openshift-config-operator                          openshift-config-operator-7794fc8ccd-s545h                   1/1     Running     1 (6h46m ago)   6h52m
+openshift-console-operator                         console-operator-75b68f4466-t984q                            2/2     Running     0               6h40m
+openshift-console                                  console-d955f495-jnf82                                       1/1     Running     0               6h39m
+openshift-console                                  console-d955f495-qj4ht                                       1/1     Running     0               6h39m
+openshift-console                                  downloads-78b784cc4d-k49nx                                   1/1     Running     0               6h40m
+openshift-console                                  downloads-78b784cc4d-wlzbd                                   1/1     Running     0               6h40m
+openshift-controller-manager-operator              openshift-controller-manager-operator-589b88b589-77wlw       1/1     Running     1 (6h46m ago)   6h50m
+openshift-controller-manager                       controller-manager-6c67dd645d-2k7h5                          1/1     Running     1 (92m ago)     6h38m
+openshift-controller-manager                       controller-manager-6c67dd645d-h74w6                          1/1     Running     0               6h38m
+openshift-controller-manager                       controller-manager-6c67dd645d-qmph7                          1/1     Running     0               6h38m
+openshift-dns-operator                             dns-operator-58f6c6f864-p4rwc                                2/2     Running     0               6h50m
+openshift-dns                                      dns-default-9tjgq                                            2/2     Running     0               6h46m
+openshift-dns                                      dns-default-dfc29                                            2/2     Running     0               6h34m
+openshift-dns                                      dns-default-fdd8j                                            2/2     Running     0               6h46m
+openshift-dns                                      dns-default-g7xnk                                            2/2     Running     0               6h46m
+openshift-dns                                      dns-default-k6b8m                                            2/2     Running     0               6h35m
+openshift-dns                                      node-resolver-467bm                                          1/1     Running     0               6h46m
+openshift-dns                                      node-resolver-4844r                                          1/1     Running     0               6h46m
+openshift-dns                                      node-resolver-5jd7n                                          1/1     Running     0               6h35m
+openshift-dns                                      node-resolver-6cwhx                                          1/1     Running     0               6h35m
+openshift-dns                                      node-resolver-tt9ws                                          1/1     Running     0               6h46m
+openshift-etcd-operator                            etcd-operator-74cc7479b7-8kd7d                               1/1     Running     1 (6h46m ago)   6h52m
+openshift-etcd                                     etcd-guard-master-1.ocp.tektutor.labs                        1/1     Running     0               6h45m
+openshift-etcd                                     etcd-guard-master-2.ocp.tektutor.labs                        1/1     Running     0               6h41m
+openshift-etcd                                     etcd-guard-master-3.ocp.tektutor.labs                        1/1     Running     0               6h43m
+openshift-etcd                                     etcd-master-1.ocp.tektutor.labs                              4/4     Running     0               6h33m
+openshift-etcd                                     etcd-master-2.ocp.tektutor.labs                              4/4     Running     0               6h29m
+openshift-etcd                                     etcd-master-3.ocp.tektutor.labs                              4/4     Running     0               6h31m
+openshift-etcd                                     installer-4-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h44m
+openshift-etcd                                     installer-5-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h42m
+openshift-etcd                                     installer-6-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h39m
+openshift-etcd                                     installer-6-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h41m
+openshift-etcd                                     installer-6-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h37m
+openshift-etcd                                     installer-7-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h34m
+openshift-etcd                                     installer-7-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h30m
+openshift-etcd                                     installer-7-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h32m
+openshift-etcd                                     revision-pruner-6-master-1.ocp.tektutor.labs                 0/1     Completed   0               6h35m
+openshift-etcd                                     revision-pruner-6-master-2.ocp.tektutor.labs                 0/1     Completed   0               6h35m
+openshift-etcd                                     revision-pruner-6-master-3.ocp.tektutor.labs                 0/1     Completed   0               6h35m
+openshift-etcd                                     revision-pruner-7-master-1.ocp.tektutor.labs                 0/1     Completed   0               6h35m
+openshift-etcd                                     revision-pruner-7-master-2.ocp.tektutor.labs                 0/1     Completed   0               6h35m
+openshift-etcd                                     revision-pruner-7-master-3.ocp.tektutor.labs                 0/1     Completed   0               6h35m
+openshift-image-registry                           cluster-image-registry-operator-5c8d659cc5-dgrmz             1/1     Running     0               6h52m
+openshift-image-registry                           image-registry-5c648d4b4b-wbs9b                              1/1     Running     0               6h38m
+openshift-image-registry                           node-ca-87mfx                                                1/1     Running     0               6h38m
+openshift-image-registry                           node-ca-cxrl7                                                1/1     Running     0               6h38m
+openshift-image-registry                           node-ca-gcgpz                                                1/1     Running     0               6h35m
+openshift-image-registry                           node-ca-lhfqp                                                1/1     Running     0               6h38m
+openshift-image-registry                           node-ca-mgp6x                                                1/1     Running     0               6h35m
+openshift-ingress-canary                           ingress-canary-4vrkq                                         1/1     Running     0               6h40m
+openshift-ingress-canary                           ingress-canary-7l6g9                                         1/1     Running     0               6h40m
+openshift-ingress-canary                           ingress-canary-9kpbc                                         1/1     Running     0               6h35m
+openshift-ingress-canary                           ingress-canary-jbpm6                                         1/1     Running     0               6h40m
+openshift-ingress-canary                           ingress-canary-ws52m                                         1/1     Running     0               6h34m
+openshift-ingress-operator                         ingress-operator-fbd867bd4-xvw74                             2/2     Running     2 (6h41m ago)   6h52m
+openshift-ingress                                  router-default-6b9d4d5bfd-6s2nk                              1/1     Running     0               6h36m
+openshift-ingress                                  router-default-6b9d4d5bfd-jcjbl                              1/1     Running     0               6h40m
+openshift-ingress                                  router-default-6b9d4d5bfd-mcw2j                              1/1     Running     0               6h38m
+openshift-insights                                 insights-operator-bcc49f96d-gzjhw                            1/1     Running     1 (6h46m ago)   6h52m
+openshift-kube-apiserver-operator                  kube-apiserver-operator-66c5497cc8-zv2bj                     1/1     Running     1 (6h46m ago)   6h52m
+openshift-kube-apiserver                           installer-10-master-1.ocp.tektutor.labs                      0/1     Completed   0               6h35m
+openshift-kube-apiserver                           installer-10-master-2.ocp.tektutor.labs                      0/1     Completed   0               6h38m
+openshift-kube-apiserver                           installer-10-master-3.ocp.tektutor.labs                      0/1     Completed   0               6h33m
+openshift-kube-apiserver                           installer-9-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h39m
+openshift-kube-apiserver                           kube-apiserver-guard-master-1.ocp.tektutor.labs              1/1     Running     0               6h34m
+openshift-kube-apiserver                           kube-apiserver-guard-master-2.ocp.tektutor.labs              1/1     Running     0               6h39m
+openshift-kube-apiserver                           kube-apiserver-guard-master-3.ocp.tektutor.labs              1/1     Running     0               6h43m
+openshift-kube-apiserver                           kube-apiserver-master-1.ocp.tektutor.labs                    5/5     Running     0               6h34m
+openshift-kube-apiserver                           kube-apiserver-master-2.ocp.tektutor.labs                    5/5     Running     1 (92m ago)     6h36m
+openshift-kube-apiserver                           kube-apiserver-master-3.ocp.tektutor.labs                    5/5     Running     0               6h31m
+openshift-kube-apiserver                           revision-pruner-10-master-1.ocp.tektutor.labs                0/1     Completed   0               6h31m
+openshift-kube-apiserver                           revision-pruner-10-master-2.ocp.tektutor.labs                0/1     Completed   0               6h31m
+openshift-kube-apiserver                           revision-pruner-10-master-3.ocp.tektutor.labs                0/1     Completed   0               6h31m
+openshift-kube-controller-manager-operator         kube-controller-manager-operator-b6fdddd6f-ww2q8             1/1     Running     1 (6h46m ago)   6h50m
+openshift-kube-controller-manager                  installer-4-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h45m
+openshift-kube-controller-manager                  installer-4-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h43m
+openshift-kube-controller-manager                  installer-5-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h40m
+openshift-kube-controller-manager                  installer-5-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h41m
+openshift-kube-controller-manager                  installer-5-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h38m
+openshift-kube-controller-manager                  installer-6-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h35m
+openshift-kube-controller-manager                  installer-6-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h33m
+openshift-kube-controller-manager                  installer-6-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h37m
+openshift-kube-controller-manager                  kube-controller-manager-guard-master-1.ocp.tektutor.labs     1/1     Running     0               6h44m
+openshift-kube-controller-manager                  kube-controller-manager-guard-master-2.ocp.tektutor.labs     1/1     Running     0               6h40m
+openshift-kube-controller-manager                  kube-controller-manager-guard-master-3.ocp.tektutor.labs     1/1     Running     0               6h42m
+openshift-kube-controller-manager                  kube-controller-manager-master-1.ocp.tektutor.labs           4/4     Running     0               6h34m
+openshift-kube-controller-manager                  kube-controller-manager-master-2.ocp.tektutor.labs           4/4     Running     1 (92m ago)     6h32m
+openshift-kube-controller-manager                  kube-controller-manager-master-3.ocp.tektutor.labs           4/4     Running     2 (93m ago)     6h35m
+openshift-kube-controller-manager                  revision-pruner-6-master-1.ocp.tektutor.labs                 0/1     Completed   0               6h32m
+openshift-kube-controller-manager                  revision-pruner-6-master-2.ocp.tektutor.labs                 0/1     Completed   0               6h32m
+openshift-kube-controller-manager                  revision-pruner-6-master-3.ocp.tektutor.labs                 0/1     Completed   0               6h32m
+openshift-kube-scheduler-operator                  openshift-kube-scheduler-operator-7c8cb5446-6r5tb            1/1     Running     1 (6h46m ago)   6h50m
+openshift-kube-scheduler                           installer-5-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h46m
+openshift-kube-scheduler                           installer-7-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h43m
+openshift-kube-scheduler                           installer-7-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h45m
+openshift-kube-scheduler                           installer-8-master-1.ocp.tektutor.labs                       0/1     Completed   0               6h41m
+openshift-kube-scheduler                           installer-8-master-2.ocp.tektutor.labs                       0/1     Completed   0               6h38m
+openshift-kube-scheduler                           installer-8-master-3.ocp.tektutor.labs                       0/1     Completed   0               6h39m
+openshift-kube-scheduler                           openshift-kube-scheduler-guard-master-1.ocp.tektutor.labs    1/1     Running     0               6h42m
+openshift-kube-scheduler                           openshift-kube-scheduler-guard-master-2.ocp.tektutor.labs    1/1     Running     0               6h45m
+openshift-kube-scheduler                           openshift-kube-scheduler-guard-master-3.ocp.tektutor.labs    1/1     Running     0               6h39m
+openshift-kube-scheduler                           openshift-kube-scheduler-master-1.ocp.tektutor.labs          3/3     Running     0               6h40m
+openshift-kube-scheduler                           openshift-kube-scheduler-master-2.ocp.tektutor.labs          3/3     Running     0               6h37m
+openshift-kube-scheduler                           openshift-kube-scheduler-master-3.ocp.tektutor.labs          3/3     Running     0               6h39m
+openshift-kube-scheduler                           revision-pruner-6-master-1.ocp.tektutor.labs                 0/1     Completed   0               6h45m
+openshift-kube-scheduler                           revision-pruner-6-master-2.ocp.tektutor.labs                 0/1     Completed   0               6h45m
+openshift-kube-scheduler                           revision-pruner-6-master-3.ocp.tektutor.labs                 0/1     Completed   0               6h45m
+openshift-kube-scheduler                           revision-pruner-7-master-1.ocp.tektutor.labs                 0/1     Completed   0               6h45m
+openshift-kube-scheduler                           revision-pruner-7-master-2.ocp.tektutor.labs                 0/1     Completed   0               6h45m
+openshift-kube-scheduler                           revision-pruner-7-master-3.ocp.tektutor.labs                 0/1     Completed   0               6h45m
+openshift-kube-scheduler                           revision-pruner-8-master-1.ocp.tektutor.labs                 0/1     Completed   0               6h41m
+openshift-kube-scheduler                           revision-pruner-8-master-2.ocp.tektutor.labs                 0/1     Completed   0               6h42m
+openshift-kube-scheduler                           revision-pruner-8-master-3.ocp.tektutor.labs                 0/1     Completed   0               6h41m
+openshift-kube-storage-version-migrator-operator   kube-storage-version-migrator-operator-5886f9d9c4-t7w6t      1/1     Running     1 (6h46m ago)   6h50m
+openshift-kube-storage-version-migrator            migrator-5db899446d-dlktq                                    1/1     Running     0               6h47m
+openshift-machine-api                              cluster-autoscaler-operator-64c6945d46-n5q5v                 2/2     Running     0               6h52m
+openshift-machine-api                              cluster-baremetal-operator-67cd754774-7m8pn                  2/2     Running     0               6h52m
+openshift-machine-api                              control-plane-machine-set-operator-584746b655-lz6nr          1/1     Running     0               6h52m
+openshift-machine-api                              machine-api-operator-7474957984-whc4w                        2/2     Running     0               6h52m
+openshift-machine-config-operator                  machine-config-controller-767846fc4c-h6pqm                   2/2     Running     0               6h46m
+openshift-machine-config-operator                  machine-config-daemon-56j79                                  2/2     Running     0               6h35m
+openshift-machine-config-operator                  machine-config-daemon-gdj5f                                  2/2     Running     0               6h35m
+openshift-machine-config-operator                  machine-config-daemon-hzj55                                  2/2     Running     0               6h48m
+openshift-machine-config-operator                  machine-config-daemon-jdstr                                  2/2     Running     0               6h48m
+openshift-machine-config-operator                  machine-config-daemon-mk86p                                  2/2     Running     0               6h48m
+openshift-machine-config-operator                  machine-config-operator-7987b6bcdd-6g22v                     1/1     Running     0               6h52m
+openshift-machine-config-operator                  machine-config-server-bt466                                  1/1     Running     0               6h46m
+openshift-machine-config-operator                  machine-config-server-fn82r                                  1/1     Running     0               6h46m
+openshift-machine-config-operator                  machine-config-server-kdgrz                                  1/1     Running     0               6h46m
+openshift-marketplace                              certified-operators-xc498                                    1/1     Running     0               6h45m
+openshift-marketplace                              community-operators-gzw54                                    1/1     Running     0               6h45m
+openshift-marketplace                              marketplace-operator-6dcf8f6556-db682                        1/1     Running     0               6h50m
+openshift-marketplace                              redhat-marketplace-r8qlx                                     1/1     Running     0               6h45m
+openshift-marketplace                              redhat-operators-62rb4                                       1/1     Running     0               6h45m
+openshift-monitoring                               alertmanager-main-0                                          6/6     Running     0               6h38m
+openshift-monitoring                               alertmanager-main-1                                          6/6     Running     1 (6h39m ago)   6h39m
+openshift-monitoring                               cluster-monitoring-operator-7bd79c884d-9z5qb                 1/1     Running     0               6h52m
+openshift-monitoring                               kube-state-metrics-84dd57c4df-nsgbh                          3/3     Running     0               6h45m
+openshift-monitoring                               node-exporter-4szs5                                          2/2     Running     0               6h45m
+openshift-monitoring                               node-exporter-7fllg                                          2/2     Running     0               6h35m
+openshift-monitoring                               node-exporter-llscb                                          2/2     Running     0               6h45m
+openshift-monitoring                               node-exporter-s6b8k                                          2/2     Running     0               6h35m
+openshift-monitoring                               node-exporter-v5mrz                                          2/2     Running     0               6h45m
+openshift-monitoring                               openshift-state-metrics-87485d769-k5dlb                      3/3     Running     0               6h45m
+openshift-monitoring                               prometheus-adapter-6f67697675-lfjl6                          1/1     Running     0               6h40m
+openshift-monitoring                               prometheus-adapter-6f67697675-stmpt                          1/1     Running     0               6h40m
+openshift-monitoring                               prometheus-k8s-0                                             6/6     Running     0               6h38m
+openshift-monitoring                               prometheus-k8s-1                                             6/6     Running     0               6h39m
+openshift-monitoring                               prometheus-operator-5c59544657-mfqdq                         2/2     Running     0               6h46m
+openshift-monitoring                               prometheus-operator-admission-webhook-58f7f489c4-dz9dg       1/1     Running     0               6h46m
+openshift-monitoring                               prometheus-operator-admission-webhook-58f7f489c4-pxhbs       1/1     Running     0               6h46m
+openshift-monitoring                               telemeter-client-7cbbf7fb88-dh57v                            3/3     Running     0               6h40m
+openshift-monitoring                               thanos-querier-d9484ff77-n4d86                               6/6     Running     0               6h40m
+openshift-monitoring                               thanos-querier-d9484ff77-w5rm4                               6/6     Running     0               6h40m
+openshift-multus                                   multus-4sk85                                                 1/1     Running     0               6h35m
+openshift-multus                                   multus-4vbf4                                                 1/1     Running     0               6h49m
+openshift-multus                                   multus-6vkrs                                                 1/1     Running     0               6h49m
+openshift-multus                                   multus-7jwmk                                                 1/1     Running     0               6h49m
+openshift-multus                                   multus-additional-cni-plugins-qj8j8                          1/1     Running     0               6h49m
+openshift-multus                                   multus-additional-cni-plugins-rs5xt                          1/1     Running     0               6h49m
+openshift-multus                                   multus-additional-cni-plugins-t4rq8                          1/1     Running     0               6h49m
+openshift-multus                                   multus-additional-cni-plugins-wxfck                          1/1     Running     0               6h35m
+openshift-multus                                   multus-additional-cni-plugins-x2x2t                          1/1     Running     0               6h35m
+openshift-multus                                   multus-admission-controller-6866f57bc6-f5qdz                 2/2     Running     0               6h45m
+openshift-multus                                   multus-admission-controller-6866f57bc6-rjgnq                 2/2     Running     0               6h45m
+openshift-multus                                   multus-qhlws                                                 1/1     Running     0               6h35m
+openshift-multus                                   network-metrics-daemon-26dpr                                 2/2     Running     0               6h49m
+openshift-multus                                   network-metrics-daemon-999n5                                 2/2     Running     0               6h35m
+openshift-multus                                   network-metrics-daemon-dznpr                                 2/2     Running     0               6h49m
+openshift-multus                                   network-metrics-daemon-rhz2j                                 2/2     Running     0               6h35m
+openshift-multus                                   network-metrics-daemon-xfbjl                                 2/2     Running     0               6h49m
+openshift-network-diagnostics                      network-check-source-7f8d955c9d-ntp6d                        1/1     Running     0               6h49m
+openshift-network-diagnostics                      network-check-target-2vrbr                                   1/1     Running     0               6h49m
+openshift-network-diagnostics                      network-check-target-4d25m                                   1/1     Running     0               6h35m
+openshift-network-diagnostics                      network-check-target-7w994                                   1/1     Running     0               6h49m
+openshift-network-diagnostics                      network-check-target-ccmlr                                   1/1     Running     0               6h35m
+openshift-network-diagnostics                      network-check-target-gzwwf                                   1/1     Running     0               6h49m
+openshift-network-operator                         network-operator-58794dbd64-bsw9g                            1/1     Running     1 (6h46m ago)   6h50m
+openshift-oauth-apiserver                          apiserver-7d986f5684-6dspk                                   1/1     Running     0               6h40m
+openshift-oauth-apiserver                          apiserver-7d986f5684-ckrhd                                   1/1     Running     0               6h39m
+openshift-oauth-apiserver                          apiserver-7d986f5684-lhxdv                                   1/1     Running     0               6h41m
+openshift-operator-lifecycle-manager               catalog-operator-74567567b6-pmnwf                            1/1     Running     0               6h52m
+openshift-operator-lifecycle-manager               collect-profiles-28211610-5lgp9                              0/1     Completed   0               35m
+openshift-operator-lifecycle-manager               collect-profiles-28211625-rpp7m                              0/1     Completed   0               20m
+openshift-operator-lifecycle-manager               collect-profiles-28211640-n8h6r                              0/1     Completed   0               5m18s
+openshift-operator-lifecycle-manager               olm-operator-69ff6c9444-b47dq                                1/1     Running     0               6h52m
+openshift-operator-lifecycle-manager               package-server-manager-6b9ccb565f-b7xg5                      1/1     Running     0               6h52m
+openshift-operator-lifecycle-manager               packageserver-6f76c4df46-d8qf2                               1/1     Running     0               6h46m
+openshift-operator-lifecycle-manager               packageserver-6f76c4df46-sf9fk                               1/1     Running     0               6h46m
+openshift-route-controller-manager                 route-controller-manager-6585c8bb6b-9k9nh                    1/1     Running     0               6h38m
+openshift-route-controller-manager                 route-controller-manager-6585c8bb6b-mwtjn                    1/1     Running     0               6h38m
+openshift-route-controller-manager                 route-controller-manager-6585c8bb6b-znptx                    1/1     Running     0               6h38m
+openshift-sdn                                      sdn-controller-h4stv                                         2/2     Running     0               6h49m
+openshift-sdn                                      sdn-controller-vrhjr                                         2/2     Running     1 (92m ago)     6h49m
+openshift-sdn                                      sdn-controller-vwj8d                                         2/2     Running     0               6h49m
+openshift-sdn                                      sdn-nx4wb                                                    2/2     Running     0               6h35m
+openshift-sdn                                      sdn-qs25t                                                    2/2     Running     0               6h49m
+openshift-sdn                                      sdn-r2fmg                                                    2/2     Running     0               6h49m
+openshift-sdn                                      sdn-t49t7                                                    2/2     Running     0               6h49m
+openshift-sdn                                      sdn-xjw2h                                                    2/2     Running     0               6h35m
+openshift-service-ca-operator                      service-ca-operator-7bd94cf7b5-fxxss                         1/1     Running     1 (6h46m ago)   6h50m
+openshift-service-ca                               service-ca-857cbb9846-jjzrj                                  1/1     Running     0               6h47m  
+</pre>
