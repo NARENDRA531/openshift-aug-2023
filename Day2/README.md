@@ -165,3 +165,20 @@ master-3.ocp.tektutor.labs   Ready    control-plane,master,worker   5h40m   v1.2
 worker-1.ocp.tektutor.labs   Ready    worker                        5h23m   v1.26.6+6bf3f75
 worker-2.ocp.tektutor.labs   Ready    worker                        5h23m   v1.26.6+6bf3f75  
 </pre>
+
+## Lab - Listing OpenShift nodes with more detailed information
+```
+oc get nodes -o wide
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get nodes -o wide
+NAME                         STATUS   ROLES                         AGE     VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                       KERNEL-VERSION                 CONTAINER-RUNTIME
+master-1.ocp.tektutor.labs   Ready    control-plane,master,worker   5h50m   v1.26.6+6bf3f75   192.168.122.78    <none>        Red Hat Enterprise Linux CoreOS 413.92.202308091852-0 (Plow)   5.14.0-284.25.1.el9_2.x86_64   cri-o://1.26.4-3.rhaos4.13.git615a02c.el9
+master-2.ocp.tektutor.labs   Ready    control-plane,master,worker   5h49m   v1.26.6+6bf3f75   192.168.122.3     <none>        Red Hat Enterprise Linux CoreOS 413.92.202308091852-0 (Plow)   5.14.0-284.25.1.el9_2.x86_64   cri-o://1.26.4-3.rhaos4.13.git615a02c.el9
+master-3.ocp.tektutor.labs   Ready    control-plane,master,worker   5h50m   v1.26.6+6bf3f75   192.168.122.185   <none>        Red Hat Enterprise Linux CoreOS 413.92.202308091852-0 (Plow)   5.14.0-284.25.1.el9_2.x86_64   cri-o://1.26.4-3.rhaos4.13.git615a02c.el9
+worker-1.ocp.tektutor.labs   Ready    worker                        5h33m   v1.26.6+6bf3f75   192.168.122.36    <none>        Red Hat Enterprise Linux CoreOS 413.92.202308091852-0 (Plow)   5.14.0-284.25.1.el9_2.x86_64   cri-o://1.26.4-3.rhaos4.13.git615a02c.el9
+worker-2.ocp.tektutor.labs   Ready    worker                        5h33m   v1.26.6+6bf3f75   192.168.122.19    <none>        Red Hat Enterprise Linux CoreOS 413.92.202308091852-0 (Plow)   5.14.0-284.25.1.el9_2.x86_64   cri-o://1.26.4-3.rhaos4.13.git615a02c.el9  
+</pre>
