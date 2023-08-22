@@ -96,6 +96,17 @@
   -  CoreDNS
   -  User Applications
 
+- Kubernetes Custom Resource Definition (CRD)
+   - through this we can add our own Custom Resources within K8s
+   - using this we can extend existing K8s with many additional features
+
+- Kubernetes Custom Controllers
+  - in order to manage our custom resources, we also need to supply/implement Custom Controllers
+
+- Kubernetes Operators
+  - this is a combination of many Custom Resources with Custom Controllers
+  - many applications can be deployed as Kubernetes Operators
+
 ## Kubernetes Resources
 - Kubernetes support many inbuilt Resources
   - Pod ( group of containers )
@@ -114,8 +125,11 @@
    - is a JSON configuration object that is persisted within etcd datastore
    - each Deployment has one or more ReplicaSet
    - Whenever we deployment an application into K8s cluster, a Deployment object/resource is created, as part of Deployment a ReplicaSet is created, as part of ReplicaSet Pod(s) are created
-  
+
    
 ## Red Hat OpenShift Overview
-
-
+- Red Hat OpenShift is developed on top of opensource Google Kubernetes
+- this is an enterprise product, we need buy license to use it for commercial purpose
+- supported by Red Hat ( an IBM company )
+- this provides Command Line Interface just like Kubernetes and also supports Webconsole unlike K8s
+- supports all features of K8s + many additional features 
