@@ -134,3 +134,5 @@
 - this provides Command Line Interface just like Kubernetes and also supports Webconsole unlike K8s
 - in other words is a Red Hat's distribution of Kubernetes
 - supports all features of K8s + many additional features 
+- oc is the OpenShift client tool equivalent to Kubernetes kubectl
+- OpenShift also supports using kubectl client tool
