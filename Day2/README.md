@@ -886,7 +886,9 @@ FIELDS:
 ```
 oc new-project jegan
 ```
+
 Expected output
+
 <pre>
 ┌──(jegan㉿tektutor.org)-[~]
 └─$ oc new-project jegan
