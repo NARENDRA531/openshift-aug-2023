@@ -91,7 +91,16 @@
       - helps in locating a service by its name as opposed to IP Address
     
 - Worker Node Components
-  -  
+  -  Container Runtime ( runC or CRI-O, etc., )
+  -  kubelet - Container Agent
+  -  CoreDNS
+  -  User Applications
+
+## Kubernetes Resources
+- Kubernetes support many inbuilt Resources
+  - Pod ( group of containers )
+    - applications run within the Pod, to be more-precise, applications run inside some container that is part of the Pod
+
 ## Red Hat OpenShift Overview
 
 
