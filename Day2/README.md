@@ -136,3 +136,32 @@
 - supports all features of K8s + many additional features 
 - oc is the OpenShift client tool equivalent to Kubernetes kubectl
 - OpenShift also supports using kubectl client tool
+
+# Red Hat OpenShift commands
+
+## Lab - Listing the OpenShift nodes in the CLI
+```
+oc get nodes
+kubectl get nodes
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get nodes
+NAME                         STATUS   ROLES                         AGE     VERSION
+master-1.ocp.tektutor.labs   Ready    control-plane,master,worker   5h40m   v1.26.6+6bf3f75
+master-2.ocp.tektutor.labs   Ready    control-plane,master,worker   5h39m   v1.26.6+6bf3f75
+master-3.ocp.tektutor.labs   Ready    control-plane,master,worker   5h40m   v1.26.6+6bf3f75
+worker-1.ocp.tektutor.labs   Ready    worker                        5h23m   v1.26.6+6bf3f75
+worker-2.ocp.tektutor.labs   Ready    worker                        5h23m   v1.26.6+6bf3f75
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ kubectl get nodes
+NAME                         STATUS   ROLES                         AGE     VERSION
+master-1.ocp.tektutor.labs   Ready    control-plane,master,worker   5h40m   v1.26.6+6bf3f75
+master-2.ocp.tektutor.labs   Ready    control-plane,master,worker   5h40m   v1.26.6+6bf3f75
+master-3.ocp.tektutor.labs   Ready    control-plane,master,worker   5h40m   v1.26.6+6bf3f75
+worker-1.ocp.tektutor.labs   Ready    worker                        5h23m   v1.26.6+6bf3f75
+worker-2.ocp.tektutor.labs   Ready    worker                        5h23m   v1.26.6+6bf3f75  
+</pre>
