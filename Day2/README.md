@@ -808,18 +808,7 @@ podnetworkconnectivitychecks.controlplane.operator.openshift.io   2023-08-22T03:
 preprovisioningimages.metal3.io                                   2023-08-22T03:09:24Z
 probes.monitoring.coreos.com                                      2023-08-22T03:09:20Z
 profiles.tuned.openshift.io                                       2023-08-22T03:09:16Z
-projecthelmchartrepositories.helm.openshift.io  ┌──(jegan㉿tektutor.org)-[~]
-└─$ oc new-project jegan
-Now using project "jegan" on server "https://api.ocp.tektutor.labs:6443".
-
-You can add applications to this project with the 'new-app' command. For example, try:
-
-    oc new-app rails-postgresql-example
-
-to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
-
-    kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.43 -- /agnhost serve-hostname
-                  2023-08-22T03:09:08Z
+projecthelmchartrepositories.helm.openshift.io  
 projects.config.openshift.io                                      2023-08-22T03:08:38Z
 prometheuses.monitoring.coreos.com                                2023-08-22T03:09:21Z
 prometheusrules.monitoring.coreos.com                             2023-08-22T03:09:24Z
@@ -886,7 +875,8 @@ FIELDS:
 ```
 oc new-project jegan
 ```
-
+oc new-project jegan
+```
 Expected output
 
 <pre>
