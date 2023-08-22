@@ -704,3 +704,129 @@ openshift-service-ca-operator                                     Active
 openshift-user-workload-monitoring                                Active
 openshift-vsphere-infra                                           Active  
 </pre>
+
+## Lab - Listing all the Custom Resource Definitions (CRDs)
+```
+oc get crds
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get crds                                
+NAME                                                              CREATED AT
+alertmanagerconfigs.monitoring.coreos.com                         2023-08-22T03:09:11Z
+alertmanagers.monitoring.coreos.com                               2023-08-22T03:09:14Z
+apirequestcounts.apiserver.openshift.io                           2023-08-22T03:08:55Z
+apiservers.config.openshift.io                                    2023-08-22T03:08:32Z
+authentications.config.openshift.io                               2023-08-22T03:08:32Z
+authentications.operator.openshift.io                             2023-08-22T03:09:13Z
+baremetalhosts.metal3.io                                          2023-08-22T03:09:12Z
+bmceventsubscriptions.metal3.io                                   2023-08-22T03:09:14Z
+builds.config.openshift.io                                        2023-08-22T03:08:33Z
+catalogsources.operators.coreos.com                               2023-08-22T03:09:12Z
+cloudcredentials.operator.openshift.io                            2023-08-22T03:08:56Z
+clusterautoscalers.autoscaling.openshift.io                       2023-08-22T03:09:10Z
+clustercsidrivers.operator.openshift.io                           2023-08-22T03:09:51Z
+clusternetworks.network.openshift.io                              2023-08-22T03:15:40Z
+clusteroperators.config.openshift.io                              2023-08-22T03:08:20Z
+clusterresourcequotas.quota.openshift.io                          2023-08-22T03:08:31Z
+clusterserviceversions.operators.coreos.com                       2023-08-22T03:09:14Z
+clusterversions.config.openshift.io                               2023-08-22T03:08:20Z
+configs.imageregistry.operator.openshift.io                       2023-08-22T03:09:10Z
+configs.operator.openshift.io                                     2023-08-22T03:09:16Z
+configs.samples.operator.openshift.io                             2023-08-22T03:09:08Z
+consoleclidownloads.console.openshift.io                          2023-08-22T03:09:08Z
+consoleexternalloglinks.console.openshift.io                      2023-08-22T03:09:08Z
+consolelinks.console.openshift.io                                 2023-08-22T03:09:08Z
+consolenotifications.console.openshift.io                         2023-08-22T03:09:08Z
+consoleplugins.console.openshift.io                               2023-08-22T03:09:08Z
+consolequickstarts.console.openshift.io                           2023-08-22T03:09:08Z
+consoles.config.openshift.io                                      2023-08-22T03:08:33Z
+consoles.operator.openshift.io                                    2023-08-22T03:09:10Z
+consoleyamlsamples.console.openshift.io                           2023-08-22T03:09:08Z
+containerruntimeconfigs.machineconfiguration.openshift.io         2023-08-22T03:09:32Z
+controllerconfigs.machineconfiguration.openshift.io               2023-08-22T03:17:15Z
+controlplanemachinesets.machine.openshift.io                      2023-08-22T03:09:12Z
+credentialsrequests.cloudcredential.openshift.io                  2023-08-22T03:08:55Z
+csisnapshotcontrollers.operator.openshift.io                      2023-08-22T03:09:10Z
+dnses.config.openshift.io                                         2023-08-22T03:08:33Z
+dnses.operator.openshift.io                                       2023-08-22T03:09:16Z
+dnsrecords.ingress.operator.openshift.io                          2023-08-22T03:09:14Z
+egressnetworkpolicies.network.openshift.io                        2023-08-22T03:15:40Z
+egressrouters.network.operator.openshift.io                       2023-08-22T03:09:21Z
+etcds.operator.openshift.io                                       2023-08-22T03:09:08Z
+featuregates.config.openshift.io                                  2023-08-22T03:08:34Z
+firmwareschemas.metal3.io                                         2023-08-22T03:09:17Z
+hardwaredata.metal3.io                                            2023-08-22T03:09:20Z
+helmchartrepositories.helm.openshift.io                           2023-08-22T03:09:08Z
+hostfirmwaresettings.metal3.io                                    2023-08-22T03:09:21Z
+hostsubnets.network.openshift.io                                  2023-08-22T03:15:40Z
+imagecontentpolicies.config.openshift.io                          2023-08-22T03:08:35Z
+imagecontentsourcepolicies.operator.openshift.io                  2023-08-22T03:08:35Z
+imagedigestmirrorsets.config.openshift.io                         2023-08-22T03:08:35Z
+imagepruners.imageregistry.operator.openshift.io                  2023-08-22T03:09:43Z
+images.config.openshift.io                                        2023-08-22T03:08:34Z
+imagetagmirrorsets.config.openshift.io                            2023-08-22T03:08:36Z
+infrastructures.config.openshift.io                               2023-08-22T03:08:36Z
+ingresscontrollers.operator.openshift.io                          2023-08-22T03:08:59Z
+ingresses.config.openshift.io                                     2023-08-22T03:08:37Z
+insightsoperators.operator.openshift.io                           2023-08-22T03:24:46Z
+installplans.operators.coreos.com                                 2023-08-22T03:09:17Z
+ippools.whereabouts.cni.cncf.io                                   2023-08-22T03:15:34Z
+kubeapiservers.operator.openshift.io                              2023-08-22T03:09:46Z
+kubecontrollermanagers.operator.openshift.io                      2023-08-22T03:09:13Z
+kubeletconfigs.machineconfiguration.openshift.io                  2023-08-22T03:09:34Z
+kubeschedulers.operator.openshift.io                              2023-08-22T03:09:14Z
+kubestorageversionmigrators.operator.openshift.io                 2023-08-22T03:09:08Z
+machineautoscalers.autoscaling.openshift.io                       2023-08-22T03:09:13Z
+machineconfigpools.machineconfiguration.openshift.io              2023-08-22T03:09:38Z
+machineconfigs.machineconfiguration.openshift.io                  2023-08-22T03:09:36Z
+machinehealthchecks.machine.openshift.io                          2023-08-22T03:09:51Z
+machines.machine.openshift.io                                     2023-08-22T03:09:49Z
+machinesets.machine.openshift.io                                  2023-08-22T03:09:51Z
+metal3remediations.infrastructure.cluster.x-k8s.io                2023-08-22T03:09:51Z
+metal3remediationtemplates.infrastructure.cluster.x-k8s.io        2023-08-22T03:09:53Z
+netnamespaces.network.openshift.io                                2023-08-22T03:15:40Z
+network-attachment-definitions.k8s.cni.cncf.io                    2023-08-22T03:15:34Z
+networks.config.openshift.io                                      2023-08-22T03:08:37Z
+networks.operator.openshift.io                                    2023-08-22T03:09:13Z
+nodes.config.openshift.io                                         2023-08-22T03:08:37Z
+oauths.config.openshift.io                                        2023-08-22T03:08:38Z
+olmconfigs.operators.coreos.com                                   2023-08-22T03:09:24Z
+openshiftapiservers.operator.openshift.io                         2023-08-22T03:09:08Z
+openshiftcontrollermanagers.operator.openshift.io                 2023-08-22T03:09:13Z
+operatorconditions.operators.coreos.com                           2023-08-22T03:09:27Z
+operatorgroups.operators.coreos.com                               2023-08-22T03:09:28Z
+operatorhubs.config.openshift.io                                  2023-08-22T03:09:08Z
+operatorpkis.network.operator.openshift.io                        2023-08-22T03:09:23Z
+operators.operators.coreos.com                                    2023-08-22T03:09:31Z
+overlappingrangeipreservations.whereabouts.cni.cncf.io            2023-08-22T03:15:34Z
+performanceprofiles.performance.openshift.io                      2023-08-22T03:09:13Z
+podmonitors.monitoring.coreos.com                                 2023-08-22T03:09:17Z
+podnetworkconnectivitychecks.controlplane.operator.openshift.io   2023-08-22T03:34:08Z
+preprovisioningimages.metal3.io                                   2023-08-22T03:09:24Z
+probes.monitoring.coreos.com                                      2023-08-22T03:09:20Z
+profiles.tuned.openshift.io                                       2023-08-22T03:09:16Z
+projecthelmchartrepositories.helm.openshift.io                    2023-08-22T03:09:08Z
+projects.config.openshift.io                                      2023-08-22T03:08:38Z
+prometheuses.monitoring.coreos.com                                2023-08-22T03:09:21Z
+prometheusrules.monitoring.coreos.com                             2023-08-22T03:09:24Z
+provisionings.metal3.io                                           2023-08-22T03:10:16Z
+proxies.config.openshift.io                                       2023-08-22T03:08:31Z
+rangeallocations.security.internal.openshift.io                   2023-08-22T03:08:31Z
+rolebindingrestrictions.authorization.openshift.io                2023-08-22T03:08:31Z
+schedulers.config.openshift.io                                    2023-08-22T03:08:39Z
+securitycontextconstraints.security.openshift.io                  2023-08-22T03:08:31Z
+servicecas.operator.openshift.io                                  2023-08-22T03:09:17Z
+servicemonitors.monitoring.coreos.com                             2023-08-22T03:09:27Z
+storages.operator.openshift.io                                    2023-08-22T03:09:51Z
+storagestates.migration.k8s.io                                    2023-08-22T03:09:13Z
+storageversionmigrations.migration.k8s.io                         2023-08-22T03:09:10Z
+subscriptions.operators.coreos.com                                2023-08-22T03:09:46Z
+thanosrulers.monitoring.coreos.com                                2023-08-22T03:09:28Z
+tuneds.tuned.openshift.io                                         2023-08-22T03:09:18Z
+volumesnapshotclasses.snapshot.storage.k8s.io                     2023-08-22T03:17:45Z
+volumesnapshotcontents.snapshot.storage.k8s.io                    2023-08-22T03:17:45Z
+volumesnapshots.snapshot.storage.k8s.io                           2023-08-22T03:17:45Z  
+</pre>
