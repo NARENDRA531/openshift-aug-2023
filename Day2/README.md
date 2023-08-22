@@ -830,3 +830,43 @@ volumesnapshotclasses.snapshot.storage.k8s.io                     2023-08-22T03:
 volumesnapshotcontents.snapshot.storage.k8s.io                    2023-08-22T03:17:45Z
 volumesnapshots.snapshot.storage.k8s.io                           2023-08-22T03:17:45Z  
 </pre>
+
+
+## Lab - Finding help about any OpenShift resource
+```
+oc explain deploy
+```
+
+Expected output
+<pre>
+──(jegan㉿tektutor.org)-[~]
+└─$ oc explain deploy
+KIND:     Deployment
+VERSION:  apps/v1
+
+DESCRIPTION:
+     Deployment enables declarative updates for Pods and ReplicaSets.
+
+FIELDS:
+   apiVersion	<string>
+     APIVersion defines the versioned schema of this representation of an
+     object. Servers should convert recognized schemas to the latest internal
+     value, and may reject unrecognized values. More info:
+     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+
+   kind	<string>
+     Kind is a string value representing the REST resource this object
+     represents. Servers may infer this from the endpoint the client submits
+     requests to. Cannot be updated. In CamelCase. More info:
+     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+   metadata	<Object>
+     Standard object's metadata. More info:
+     https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+
+   spec	<Object>
+     Specification of the desired behavior of the Deployment.
+
+   status	<Object>
+     Most recently observed status of the Deployment.  
+</pre>
