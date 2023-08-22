@@ -34,10 +34,20 @@
     - scale down - whenever the user traffic to your application comes down, orchestration platform can help you reduce the number of application instance to an appropriate required instances
   - rolling update
     - this feature allow to you upgrade/downgrade your appliction from one version to other version on the live prod environment without any downtime
-
+- Examples of Container Orchestration Platform
+  1. Docker SWARM
+  2. Google Kubernetes
+  3. Red Hat OpenShift
+   
 ## Docker SWARM Overview
+- Docker Inc's native Orchestration Platform
+- it only supports managing Docker containerized application workloads
+- it is not production grade
+- good for learning, protyping, R&D, Dev/QA environments
+- light-weight compared to Kubernetes/OpenShift
 
 ## Kubernetes Overview
+- 
 
 ## Red Hat OpenShift Overview
 
