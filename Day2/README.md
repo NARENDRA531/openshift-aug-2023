@@ -47,8 +47,51 @@
 - light-weight compared to Kubernetes/OpenShift
 
 ## Kubernetes Overview
-- 
-
+- It is an opensource Container Orchestration Platform from Google
+- it is a production grade Orchestration Platform
+- it support many container runtimes/engines including Docker, containerd, lxc, etc.
+- Kubernetes support any container runtimes that implements CRI (Container Runtime Interface)
+- Kubernetes cluster - a group of servers works together
+  - some of those servers could act like a Master node
+  - some of those servers could act like a Worker node
+  - some of those servers might support both Master and work role
+  - Master/Worker Nodes could be Physical Servers, Virtual Machines,AWS ec2 instances, Azure Virtual Machines, etc.,
+  - could have any number of master nodes and worker nodes - generally 3 masters and 2 or more workers are recommended
+- Kubernetes aka K8s
+- K8s tools - kubectl, kubeadm, kubelet
+  - kubectl - is the client tool which end-users will be using to deploy/manage their application workloads
+  - kubeadm
+    - is an administration tool to manage K8s cluster
+    - is used to bootstrap/setup master nodes 
+    - is used to add new nodes to the K8s cluster
+    - is used to remove existing nodes from K8s cluster
+    - is used to join a worker node to the K8s cluster or master nodes
+  - kubelet
+    - is a Container Agent that runs in every nodes ( master and worker nodes )
+    
+- Master Node Components
+  - in the master nodes, a special set of components run they are called as Control Plane
+  - kubelet
+  - What are the Control Plane components
+    - API Server
+    - etcd - key/pair datastore
+    - Scheduler
+    - Controller Managers
+      - Deployment Controller
+      - ReplicaSet Controller
+      - Node Controller
+      - DaemonSet Controller
+      - Job Controller
+      - CronJob Controller
+      - StatefulSet Controller
+      - Endpoint Controller
+  - Container Runtime
+  - CoreDNS
+    - supports Service Discovery
+      - helps in locating a service by its name as opposed to IP Address
+    
+- Worker Node Components
+  -  
 ## Red Hat OpenShift Overview
 
 
