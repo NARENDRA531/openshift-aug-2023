@@ -23,6 +23,17 @@
 - Podman Container Engine depends on CRI-O container runtime
   
 ## Orchestration Platform Overview
+- Benefits of using Orchestration Platform
+  - manages your containerized application workloads
+  - helps you expose your application workloads as services internally or externally based on your needs
+  - provides an environment that helps you make your application highly available (HA)
+  - supports in-built monitoring tools to check your application health/live etc.,
+  - supports load balancing out of the box, at the same allows you to use external load balancer if there is a need
+  - supports Scale up/down
+    - scale up - whenever there is too much user traffic to your application, orchestration platform can help you increase the number of application instances
+    - scale down - whenever the user traffic to your application comes down, orchestration platform can help you reduce the number of application instance to an appropriate required instances
+  - rolling update
+    - this feature allow to you upgrade/downgrade your appliction from one version to other version on the live prod environment without any downtime
 
 ## Docker SWARM Overview
 
