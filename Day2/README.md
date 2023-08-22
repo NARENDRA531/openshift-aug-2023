@@ -553,3 +553,154 @@ openshift-sdn                                      sdn-xjw2h                    
 openshift-service-ca-operator                      service-ca-operator-7bd94cf7b5-fxxss                         1/1     Running     1 (6h46m ago)   6h50m
 openshift-service-ca                               service-ca-857cbb9846-jjzrj                                  1/1     Running     0               6h47m  
 </pre>
+
+## Lab - Listing all namespaces or projects
+```
+oc get namespaces
+oc get projects
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get namespaces  
+NAME                                               STATUS   AGE
+default                                            Active   6h59m
+kube-node-lease                                    Active   6h59m
+kube-public                                        Active   6h59m
+kube-system                                        Active   6h59m
+openshift                                          Active   6h46m
+openshift-apiserver                                Active   6h49m
+openshift-apiserver-operator                       Active   6h58m
+openshift-authentication                           Active   6h49m
+openshift-authentication-operator                  Active   6h58m
+openshift-cloud-controller-manager                 Active   6h58m
+openshift-cloud-controller-manager-operator        Active   6h58m
+openshift-cloud-credential-operator                Active   6h58m
+openshift-cloud-network-config-controller          Active   6h58m
+openshift-cluster-csi-drivers                      Active   6h58m
+openshift-cluster-machine-approver                 Active   6h58m
+openshift-cluster-node-tuning-operator             Active   6h58m
+openshift-cluster-samples-operator                 Active   6h58m
+openshift-cluster-storage-operator                 Active   6h58m
+openshift-cluster-version                          Active   6h59m
+openshift-config                                   Active   6h58m
+openshift-config-managed                           Active   6h58m
+openshift-config-operator                          Active   6h58m
+openshift-console                                  Active   6h43m
+openshift-console-operator                         Active   6h43m
+openshift-console-user-settings                    Active   6h43m
+openshift-controller-manager                       Active   6h50m
+openshift-controller-manager-operator              Active   6h58m
+openshift-dns                                      Active   6h48m
+openshift-dns-operator                             Active   6h58m
+openshift-etcd                                     Active   6h58m
+openshift-etcd-operator                            Active   6h58m
+openshift-host-network                             Active   6h52m
+openshift-image-registry                           Active   6h58m
+openshift-infra                                    Active   6h59m
+openshift-ingress                                  Active   6h48m
+openshift-ingress-canary                           Active   6h43m
+openshift-ingress-operator                         Active   6h58m
+openshift-insights                                 Active   6h58m
+openshift-kni-infra                                Active   6h58m
+openshift-kube-apiserver                           Active   6h58m
+openshift-kube-apiserver-operator                  Active   6h58m
+openshift-kube-controller-manager                  Active   6h58m
+openshift-kube-controller-manager-operator         Active   6h58m
+openshift-kube-scheduler                           Active   6h58m
+openshift-kube-scheduler-operator                  Active   6h58m
+openshift-kube-storage-version-migrator            Active   6h50m
+openshift-kube-storage-version-migrator-operator   Active   6h58m
+openshift-machine-api                              Active   6h58m
+openshift-machine-config-operator                  Active   6h58m
+openshift-marketplace                              Active   6h58m
+openshift-monitoring                               Active   6h58m
+openshift-multus                                   Active   6h52m
+openshift-network-diagnostics                      Active   6h52m
+openshift-network-operator                         Active   6h58m
+openshift-node                                     Active   6h46m
+openshift-nutanix-infra                            Active   6h58m
+openshift-oauth-apiserver                          Active   6h49m
+openshift-openstack-infra                          Active   6h58m
+openshift-operator-lifecycle-manager               Active   6h58m
+openshift-operators                                Active   6h58m
+openshift-ovirt-infra                              Active   6h58m
+openshift-route-controller-manager                 Active   6h50m
+openshift-sdn                                      Active   6h52m
+openshift-service-ca                               Active   6h50m
+openshift-service-ca-operator                      Active   6h58m
+openshift-user-workload-monitoring                 Active   6h58m
+openshift-vsphere-infra                            Active   6h58m
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get projects  
+NAME                                               DISPLAY NAME   STATUS
+default                                                           Active
+kube-node-lease                                                   Active
+kube-public                                                       Active
+kube-system                                                       Active
+openshift                                                         Active
+openshift-apiserver                                               Active
+openshift-apiserver-operator                                      Active
+openshift-authentication                                          Active
+openshift-authentication-operator                                 Active
+openshift-cloud-controller-manager                                Active
+openshift-cloud-controller-manager-operator                       Active
+openshift-cloud-credential-operator                               Active
+openshift-cloud-network-config-controller                         Active
+openshift-cluster-csi-drivers                                     Active
+openshift-cluster-machine-approver                                Active
+openshift-cluster-node-tuning-operator                            Active
+openshift-cluster-samples-operator                                Active
+openshift-cluster-storage-operator                                Active
+openshift-cluster-version                                         Active
+openshift-config                                                  Active
+openshift-config-managed                                          Active
+openshift-config-operator                                         Active
+openshift-console                                                 Active
+openshift-console-operator                                        Active
+openshift-console-user-settings                                   Active
+openshift-controller-manager                                      Active
+openshift-controller-manager-operator                             Active
+openshift-dns                                                     Active
+openshift-dns-operator                                            Active
+openshift-etcd                                                    Active
+openshift-etcd-operator                                           Active
+openshift-host-network                                            Active
+openshift-image-registry                                          Active
+openshift-infra                                                   Active
+openshift-ingress                                                 Active
+openshift-ingress-canary                                          Active
+openshift-ingress-operator                                        Active
+openshift-insights                                                Active
+openshift-kni-infra                                               Active
+openshift-kube-apiserver                                          Active
+openshift-kube-apiserver-operator                                 Active
+openshift-kube-controller-manager                                 Active
+openshift-kube-controller-manager-operator                        Active
+openshift-kube-scheduler                                          Active
+openshift-kube-scheduler-operator                                 Active
+openshift-kube-storage-version-migrator                           Active
+openshift-kube-storage-version-migrator-operator                  Active
+openshift-machine-api                                             Active
+openshift-machine-config-operator                                 Active
+openshift-marketplace                                             Active
+openshift-monitoring                                              Active
+openshift-multus                                                  Active
+openshift-network-diagnostics                                     Active
+openshift-network-operator                                        Active
+openshift-node                                                    Active
+openshift-nutanix-infra                                           Active
+openshift-oauth-apiserver                                         Active
+openshift-openstack-infra                                         Active
+openshift-operator-lifecycle-manager                              Active
+openshift-operators                                               Active
+openshift-ovirt-infra                                             Active
+openshift-route-controller-manager                                Active
+openshift-sdn                                                     Active
+openshift-service-ca                                              Active
+openshift-service-ca-operator                                     Active
+openshift-user-workload-monitoring                                Active
+openshift-vsphere-infra                                           Active  
+</pre>
