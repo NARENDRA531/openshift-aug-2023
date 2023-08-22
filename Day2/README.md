@@ -99,11 +99,22 @@
 ## Kubernetes Resources
 - Kubernetes support many inbuilt Resources
   - Pod ( group of containers )
+    - a JSON configuration object that is stored within etcd datastore
     - applications run within the Pod, to be more-precise, applications run inside some container that is part of the 
       pod
     - recommended best practices insist that only one main application exists per Pod
     - IP address is assigned on the Pod level, hence all containers in the same Pod shares the same IP address
     - Kubernetes uses pause containers to provide network support for all the other containers in the Pod
+ - ReplicaSet
+   - is a JSON configuration object that is persisted within etcd datastore
+   - ReplicaSet is the one which tells how many instances of a Pod is supposed to running at any point of time on a particular application Deployment
+   - Each ReplicaSet represents a group of Pods
+   - Each ReplicaSet manages a single version of Application Pods
+ - Deployment
+   - is a JSON configuration object that is persisted within etcd datastore
+   - each Deployment has one or more ReplicaSet
+   - Whenever we deployment an application into K8s cluster, a Deployment object/resource is created, as part of Deployment a ReplicaSet is created, as part of ReplicaSet Pod(s) are created
+  
    
 ## Red Hat OpenShift Overview
 
