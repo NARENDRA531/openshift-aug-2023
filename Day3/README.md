@@ -57,3 +57,9 @@ Events:                   <none>
 NAME    ENDPOINTS          AGE
 nginx   10.128.2.13:8080   8s
 </pre>
+
+## Demo - Installing MetalLB Operator to support LoadBalancer Service
+You can follow the instructions from the below blog page
+<pre>
+https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift-onprem-4230944bfa35  
+</pre>
