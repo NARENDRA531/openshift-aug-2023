@@ -136,7 +136,7 @@ pod/nginx-5bccb79775-qk2rv   1/1     Running   0          7s
 cd ~/openshift-aug-2023
 git pull
 cd Day3/decalartive
-oc apply -f nginx-svc.yml
+oc apply -f nginx-clusterip-svc.yml
 oc get svc
 oc describe svc/nginx
 ```
@@ -145,7 +145,7 @@ Expected output
 <pre>
                                                                                                                                         
 ┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
-└─$ oc apply -f nginx-svc.yml                                                                   
+└─$ oc apply -f nginx-clusterip-svc.yml                                                              
 service/nginx created
                                                                                                                                         
 ┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
