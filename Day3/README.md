@@ -130,3 +130,44 @@ pod/nginx-5bccb79775-4xkj7   1/1     Running   0          7s
 pod/nginx-5bccb79775-l884g   1/1     Running   0          7s
 pod/nginx-5bccb79775-qk2rv   1/1     Running   0          7s
 </pre>
+
+## Lab - Creating ClusterIP Internal Service in declarative style
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day3/decalartive
+oc apply -f nginx-svc.yml
+oc get svc
+oc describe svc/nginx
+```
+
+Expected output
+<pre>
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc apply -f nginx-svc.yml                                                                   
+service/nginx created
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc get svc               
+NAME    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+nginx   ClusterIP   172.30.225.69   <none>        8080/TCP   4s
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc describe svc/nginx 
+Name:              nginx
+Namespace:         jegan
+Labels:            app=nginx
+Annotations:       <none>
+Selector:          app=nginx
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                172.30.225.69
+IPs:               172.30.225.69
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         10.128.0.205:8080,10.128.2.20:8080,10.131.0.40:8080
+Session Affinity:  None
+Events:            <none>
+</pre>
