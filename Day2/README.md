@@ -137,6 +137,9 @@
 - oc is the OpenShift client tool equivalent to Kubernetes kubectl
 - OpenShift also supports using kubectl client tool
 
+## Red Hat OpenShift High-Level Architecture
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/28390b03-eb17-41ff-82ed-a520dbebac60)
+
 # Red Hat OpenShift commands
 
 ## Lab - Listing the OpenShift nodes in the CLI
