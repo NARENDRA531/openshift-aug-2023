@@ -171,3 +171,29 @@ Endpoints:         10.128.0.205:8080,10.128.2.20:8080,10.131.0.40:8080
 Session Affinity:  None
 Events:            <none>
 </pre>
+
+## Deleting a service in declarative style
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day3/declarative
+oc get svc
+oc delete -f nginx-clusterip-svc.yml
+oc get svc
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc get svc               
+NAME    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+nginx   ClusterIP   172.30.225.69   <none>        8080/TCP   4s
+  
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc delete -f nginx-clusterip-svc.yml 
+service "nginx" deleted  
+
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc get svc                          
+No resources found in jegan namespace.
+</pre>
