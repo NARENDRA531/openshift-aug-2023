@@ -15,7 +15,7 @@ Expected output
 service "nginx" deleted  
 </pre>
 
-## Creating a NodePort external service
+## ⛹️‍♂️ Lab - Creating a NodePort external service
 ```
 oc delete svc/nginx
 oc expose deploy/nginx --type=NodePort --port=8080
@@ -68,7 +68,7 @@ https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift
 </pre>
 
 
-## Lab - Autogenerate nginx deployment manifest file to create deployment in declarative style
+## ⛹️‍♂️ Lab - Autogenerate nginx deployment manifest file to create deployment in declarative style
 ```
 oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client
 oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml
@@ -131,7 +131,7 @@ pod/nginx-5bccb79775-l884g   1/1     Running   0          7s
 pod/nginx-5bccb79775-qk2rv   1/1     Running   0          7s
 </pre>
 
-## Lab - Creating ClusterIP Internal Service in declarative style
+## ⛹️‍♂️ Lab - Creating ClusterIP Internal Service in declarative style
 ```
 cd ~/openshift-aug-2023
 git pull
@@ -172,7 +172,7 @@ Session Affinity:  None
 Events:            <none>
 </pre>
 
-## Deleting a service in declarative style
+## ⛹️‍♂️ Lab - Deleting a service in declarative style
 ```
 cd ~/openshift-aug-2023
 git pull
@@ -198,7 +198,7 @@ service "nginx" deleted
 No resources found in jegan namespace.
 </pre>
 
-## Lab - Creating NodePort external service in declarative style
+## ⛹️‍♂️ Lab - Creating NodePort external service in declarative style
 ```
 oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml > nginx-nodeport-svc.yml
 
