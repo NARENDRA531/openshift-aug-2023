@@ -11,3 +11,49 @@ Expected output
 └─$ oc delete svc/nginx   
 service "nginx" deleted  
 </pre>
+
+## Creating a NodePort external service
+```
+oc delete svc/nginx
+oc expose deploy/nginx --type=NodePort --port=8080
+oc get svc
+oc describe svc/nginx
+oc get endpoints
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc expose deploy/nginx --type=NodePort --port=8080                        
+service/nginx exposed
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get svc                                        
+NAME    TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+nginx   NodePort   172.30.249.211   <none>        8080:31006/TCP   3s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc describe svc/nginx
+Name:                     nginx
+Namespace:                jegan
+Labels:                   app=nginx
+Annotations:              <none>
+Selector:                 app=nginx
+Type:                     NodePort
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       172.30.249.211
+IPs:                      172.30.249.211
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  31006/TCP
+Endpoints:                10.128.2.13:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get endpoints     
+NAME    ENDPOINTS          AGE
+nginx   10.128.2.13:8080   8s
+</pre>
