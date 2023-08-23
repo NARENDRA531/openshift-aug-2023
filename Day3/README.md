@@ -1,5 +1,8 @@
 # Day 3
 
+## What happens internally within OpenShift when we create a deployment ?
+![OpenShift](openshift-internals.png)
+
 ## Deleting a service
 ```
 oc delete svc/nginx
