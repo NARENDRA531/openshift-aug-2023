@@ -1134,9 +1134,48 @@ There are 3 types of Services
 ## Lab - Creating an Internal ClusterIP service for nginx deployment
 ```
 oc expose deploy/nginx --type=ClusterIP --port=8080
+oc get svc
+oc describe svc/nginx
+oc get pods -o wide --show-labels
+oc get endpoints
 ```
 
 Expected output
 <pre>
-  
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc expose deploy/nginx --type=ClusterIP --port=8080                 
+service/nginx exposed
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get svc                                         
+NAME    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+nginx   ClusterIP   172.30.243.159   <none>        8080/TCP   4s
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc describe svc/nginx          
+Name:              nginx
+Namespace:         jegan
+Labels:            app=nginx
+Annotations:       <none>
+Selector:          app=nginx
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                172.30.243.159
+IPs:               172.30.243.159
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         10.128.2.13:8080
+Session Affinity:  None
+Events:            <none>
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get po -o wide --show-labels
+NAME                     READY   STATUS    RESTARTS   AGE   IP            NODE                         NOMINATED NODE   READINESS GATES   LABELS
+nginx-5bccb79775-f9zfk   1/1     Running   0          73s   10.128.2.13   worker-1.ocp.tektutor.labs   <none>           <none>            app=nginx,pod-template-hash=5bccb79775  
+
+┌──(jegan㉿tektutor.org)-[~]
+└─$ oc get endpoints               
+NAME    ENDPOINTS          AGE
+nginx   10.128.2.13:8080   2m12s  
 </pre>
