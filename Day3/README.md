@@ -197,3 +197,72 @@ service "nginx" deleted
 └─$ oc get svc                          
 No resources found in jegan namespace.
 </pre>
+
+## Lab - Creating NodePort external service in declarative style
+```
+oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml > nginx-nodeport-svc.yml
+
+ls
+
+oc apply -f nginx-nodeport-svc.yml    
+
+oc get svc
+
+oc get nodes
+
+curl http://master-1.ocp.tektutor.labs:32183
+```
+
+Expected output
+```
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml > nginx-nodeport-svc.yml
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ ls
+nginx-clusterip-svc.yml  nginx-deploy.yml  nginx-nodeport-svc.yml
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc apply -f nginx-nodeport-svc.yml                                                                  
+service/nginx created
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc get svc                        
+NAME    TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+nginx   NodePort   172.30.82.227   <none>        8080:32183/TCP   2s
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc get nodes                   
+NAME                         STATUS   ROLES                         AGE     VERSION
+master-1.ocp.tektutor.labs   Ready    control-plane,master,worker   8h      v1.26.6+6bf3f75
+master-2.ocp.tektutor.labs   Ready    control-plane,master,worker   8h      v1.26.6+6bf3f75
+master-3.ocp.tektutor.labs   Ready    control-plane,master,worker   8h      v1.26.6+6bf3f75
+worker-1.ocp.tektutor.labs   Ready    worker                        6h36m   v1.26.6+6bf3f75
+worker-2.ocp.tektutor.labs   Ready    worker                        6h37m   v1.26.6+6bf3f75
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ curl http://master-1.ocp.tektutor.labs:32183
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>                                              
+```
