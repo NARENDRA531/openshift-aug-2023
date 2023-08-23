@@ -73,12 +73,7 @@
   - in the master nodes, a special set of components run they are called as Control Plane
   - kubelet
   - What are the Control Plane components
-    - API Server┌──(jegan㉿tektutor.org)-[~]
-└─$ oc port-forward pod/nginx-5bccb79775-lk9xv 8080:8080
-Forwarding from 127.0.0.1:8080 -> 8080
-Forwarding from [::1]:8080 -> 8080
-Handling connection for 8080
-
+    - API Server
     - etcd - key/pair datastore
     - Scheduler
     - Controller Managers
