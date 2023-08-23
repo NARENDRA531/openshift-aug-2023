@@ -63,3 +63,48 @@ You can follow the instructions from the below blog page
 <pre>
 https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift-onprem-4230944bfa35  
 </pre>
+
+
+## Lab - Autogenerate nginx deployment manifest file to create deployment in declarative style
+```
+oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client
+oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml
+ls
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: bitnami/nginx:latest
+        name: nginx
+        resources: {}
+status: {}
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml > nginx-deploy.yml
+                                                                                                                                        
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ ls
+nginx-deploy.yml  
+</pre>
