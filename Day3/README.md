@@ -70,6 +70,8 @@ https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift
 oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client
 oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml
 ls
+oc apply -f nginx-deploy.yml
+oc get deploy,rs,po
 ```
 
 Expected output
@@ -107,4 +109,21 @@ status: {}
 ┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
 └─$ ls
 nginx-deploy.yml  
+
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc apply -f nginx-deploy.yml 
+deployment.apps/nginx created
+                                                                                    
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day3/declarative]
+└─$ oc get deploy,rs,po         
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx   3/3     3            3           7s
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-5bccb79775   3         3         3       7s
+
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/nginx-5bccb79775-4xkj7   1/1     Running   0          7s
+pod/nginx-5bccb79775-l884g   1/1     Running   0          7s
+pod/nginx-5bccb79775-qk2rv   1/1     Running   0          7s
 </pre>
