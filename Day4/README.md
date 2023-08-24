@@ -50,6 +50,19 @@ mkdir -p /mnt/nfs/user13
 mkdir -p /mnt/nfs/user14
 mkdir -p /mnt/nfs/user15
 mkdir -p /mnt/nfs/user16
+
+chmod 755 -R /mnt/nfs
+chown nfsnobody:nfsnobody -R /mnt/nfs
+
+systemctl enable rpcbind
+systemctl enable nfs-server
+systemctl enable nfs-lock
+systemctl enable nfs-idmap
+systemctl start rpcbind
+systemctl start nfs-server
+systemctl start nfs-lock
+systemctl start nfs-idmap
+
 ```
 
 Let's create nfs shared folder in Server 3 (OpenShift Cluster 3 - 10.10.15.101)
@@ -64,6 +77,18 @@ mkdir -p /mnt/nfs/user22
 mkdir -p /mnt/nfs/user23
 mkdir -p /mnt/nfs/user24
 mkdir -p /mnt/nfs/user25
+chmod 755 -R /mnt/nfs
+chown nfsnobody:nfsnobody -R /mnt/nfs
+
+systemctl enable rpcbind
+systemctl enable nfs-server
+systemctl enable nfs-lock
+systemctl enable nfs-idmap
+systemctl start rpcbind
+systemctl start nfs-server
+systemctl start nfs-lock
+systemctl start nfs-idmap
+
 ```
 
 
