@@ -1,5 +1,10 @@
 # Day 4
 
+## Multi-stage Dockerfile
+```
+https://github.com/tektutor/spring-ms.git
+```
+
 ## Lab - Creating a route to expose the service to the external world
 ```
 oc create deploy nginx --image=bitnami/nginx --replicas=3
