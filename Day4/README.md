@@ -24,6 +24,9 @@ mkdir -p /mnt/nfs/user04
 mkdir -p /mnt/nfs/user05
 mkdir -p /mnt/nfs/user06
 mkdir -p /mnt/nfs/user07
+
+chmod 755 -R /mnt/nfs
+chown -R nouser:nogroup /mnt/nfs
 ```
 
 Let's create nfs shared folder in Server 2 (OpenShift Cluster 2 - 10.10.15.99)
