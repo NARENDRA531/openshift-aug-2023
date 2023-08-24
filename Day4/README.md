@@ -1,5 +1,11 @@
 # Day 4
 
+## Cloning TekTutor Trainig Repo
+```
+cd ~
+git clone https://github.com/tektutor/openshift-aug-2023
+```
+
 ## Multi-stage Dockerfile
 ```
 https://github.com/tektutor/spring-ms.git
@@ -159,3 +165,62 @@ You may now try accessing the route from outside the cluster as shown below
 <pre>
 http://nginx-jegan.apps.ocp.rps.com
 </pre>
+
+## Lab - Deploying a multi-pod application in declarative style
+In this lab exercise we will learning the following topics
+1. How to make use PersistentVolume ( external storage ) in OpenShift application workloads
+2. How to deploy a multi-pod application
+3. ConfigMap
+4. Secrets
+
+The application is Wordpress which depends on MySQL database.
+
+This exercise involves deployment wordpress separately and mysql separately.
+
+Let's first create the mysql deployment
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day4/wordpress-configmap-and-secrets/
+oc apply -f mysql-pv.yml
+oc apply -f mysql-pvc.yml
+oc apply -f mysql-deploy.yml
+oc apply -f mysql-svc.yml
+```
+
+Let's deploy wordpress now
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day4/wordpress-configmap-and-secrets/
+oc apply -f wordpress-pv.yml
+oc apply -f wordpress-pvc.yml
+oc apply -f wordpress-deploy.yml
+oc apply -f wordpress-svc.yml
+oc apply -f wordpress-route.yml
+```
+
+You may now check if the mysql and wordpress pods are in running state
+```
+oc get po 
+```
+
+You may also check if the mysql pod is ready to accept user connections
+```
+oc logs -f mysql-886b485d4-5j5g5
+```
+
+You may also check if the wordpress pod is ready
+```
+oc logs -f wordpress-6b6554f4f6-whpjx
+```
+
+Once you are sure that both mysql and wordpress is all set, you may find the route url
+```
+oc get route
+```
+
+You can head over to your CentOS chrome browser and navigate to route url
+```
+http://wordpress-jegan.apps.ocp.tektutor.labs
+```
