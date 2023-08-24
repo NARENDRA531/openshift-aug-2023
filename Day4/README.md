@@ -26,7 +26,16 @@ mkdir -p /mnt/nfs/user06
 mkdir -p /mnt/nfs/user07
 
 chmod 755 -R /mnt/nfs
-chown -R nouser:nogroup /mnt/nfs
+chown nfsnobody:nfsnobody -R /mnt/nfs
+
+systemctl enable rpcbind
+systemctl enable nfs-server
+systemctl enable nfs-lock
+systemctl enable nfs-idmap
+systemctl start rpcbind
+systemctl start nfs-server
+systemctl start nfs-lock
+systemctl start nfs-idmap
 ```
 
 Let's create nfs shared folder in Server 2 (OpenShift Cluster 2 - 10.10.15.99)
@@ -61,39 +70,39 @@ mkdir -p /mnt/nfs/user25
 
 Create a file /etc/exports file with the below values on Server 1 (10.10.15.85)
 ```
-/mnt/nfs/user01				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user02				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user03				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user04				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user05				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user06				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user07				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
+/mnt/nfs/user01				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user02				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user03				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user04				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user05				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user06				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user07				192.168.122.0/24(rw,sync,no_root_squash)
 ```
 
 Create a file /etc/exports file with the below values on Server 2 (10.10.15.99)
 ```
-/mnt/nfs/user08				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user09				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user10				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user11				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user12				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user13				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user14				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user15				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user16				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
+/mnt/nfs/user08				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user09				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user10				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user11				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user12				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user13				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user14				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user15				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user16				192.168.122.0/24(rw,sync,no_root_squash)
 ```
 
 Create a file /etc/exports file with the below values on Server 3 (10.10.15.101)
 ```
-/mnt/nfs/user17				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user18				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user19				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user20				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user21				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user22				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user23				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user24				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
-/mnt/nfs/user25				192.168.122.0/24(rw,sync,no_all_squash,root_squash)
+/mnt/nfs/user17				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user18				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user19				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user20				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user21				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user22				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user23				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user24				192.168.122.0/24(rw,sync,no_root_squash)
+/mnt/nfs/user25				192.168.122.0/24(rw,sync,no_root_squash)
 ```
 Let's open up the firewall ports to expose the NFS folder to our Openshift cluster virtual machines
 ```
