@@ -1,5 +1,11 @@
 # Day 4
 
+## Cloning TekTutor Trainig Repo
+```
+cd ~
+git clone https://github.com/tektutor/openshift-aug-2023
+```
+
 ## Multi-stage Dockerfile
 ```
 https://github.com/tektutor/spring-ms.git
