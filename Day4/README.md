@@ -159,3 +159,25 @@ You may now try accessing the route from outside the cluster as shown below
 <pre>
 http://nginx-jegan.apps.ocp.rps.com
 </pre>
+
+## Lab - Deploying a multi-pod application in declarative style
+In this lab exercise we will learning the following topics
+1. How to make use PersistentVolume ( external storage ) in OpenShift application workloads
+2. How to deploy a multi-pod application
+3. ConfigMap
+4. Secrets
+
+The application is Wordpress which depends on MySQL database.
+
+This exercise involves deployment wordpress separately and mysql separately.
+
+Let's first create the mysql deployment
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day4/wordpress-configmap-and-secrets/
+oc apply -f mysql-pv.yml
+oc apply -f mysql-pvc.yml
+oc apply -f mysql-deploy.yml
+```
+
