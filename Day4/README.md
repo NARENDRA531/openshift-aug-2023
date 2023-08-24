@@ -185,5 +185,6 @@ cd Day4/wordpress-configmap-and-secrets/
 oc apply -f mysql-pv.yml
 oc apply -f mysql-pvc.yml
 oc apply -f mysql-deploy.yml
+oc apply -f mysql-svc.yml
 ```
 
