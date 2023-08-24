@@ -36,6 +36,7 @@ systemctl start rpcbind
 systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
+exportfs -r
 ```
 
 Let's create nfs shared folder in Server 2 (OpenShift Cluster 2 - 10.10.15.99)
@@ -62,7 +63,7 @@ systemctl start rpcbind
 systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
-
+exportfs -r
 ```
 
 Let's create nfs shared folder in Server 3 (OpenShift Cluster 3 - 10.10.15.101)
@@ -88,7 +89,7 @@ systemctl start rpcbind
 systemctl start nfs-server
 systemctl start nfs-lock
 systemctl start nfs-idmap
-
+exportfs -r
 ```
 
 
@@ -136,6 +137,12 @@ firewall-cmd --permanent --add-service=nfs
 firewall-cmd --permanent --add-service=rpc-bind
 firewall-cmd --permanent --add-service=mountd
 firewall-cmd --reload
+```
+
+Testing if the NFS Server setup works
+```
+su -
+showmount -e
 ```
 
 ## Lab - Creating a route to expose the service to the external world
