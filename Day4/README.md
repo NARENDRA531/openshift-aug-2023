@@ -12,5 +12,5 @@ oc get route
 
 You may now try accessing the route from outside the cluster as shown below
 <pre>
-http://  
+http://nginx-jegan.apps.ocp.rps.com
 </pre>
