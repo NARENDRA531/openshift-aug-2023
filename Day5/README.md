@@ -137,6 +137,7 @@ Step 4 - As Administrator, Click on Operators --> Operator Hub, search for "AMQ 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d8b6e8bb-e4ef-4ef4-b5e4-be8eea78993b)
 
 Step 5 - Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
+
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043
 /99087804-0b03-4185-9058-050a3f4da81a)
 
