@@ -59,6 +59,32 @@ Successfully packaged chart and saved it to: /home/jegan/openshift-aug-2023/Day4
 wordpress  wordpress-0.1.0.tgz
 </pre>
 
+## Lab - Install our custom wordpress helm chart
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day4/helm
+ls
+helm install wordpress wordpress-0.1.0.tgz
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ ls
+wordpress  wordpress-0.1.0.tgz
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm install wordpress wordpress-0.1.0.tgz  
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+NAME: wordpress
+LAST DEPLOYED: Fri Aug 25 11:24:37 2023
+NAMESPACE: jegan
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None  
+</pre>
+
 ## Lab - Understanding service discovery
 
 Service discovery helps us access a service by its name within the Kubernetes/OpenShift cluster.
