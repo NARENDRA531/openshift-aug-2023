@@ -148,6 +148,9 @@ Step 6 - Create an ActiveMQArtemises broker instance
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/457ad9e0-85d9-49c9-b2c9-46a7b0c3a0be)
 
+Step 7 - Create a route for AMQ Broker
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/86ee935f-03df-4cda-8b24-164c414e6ec3)
+
 
 
 
