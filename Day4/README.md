@@ -6,6 +6,13 @@ cd ~
 git clone https://github.com/tektutor/openshift-aug-2023
 ```
 
+## Lab - Installing Helm Package Manager in your RPS CentOS Lab Machine
+```
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
+
 ## Lab - Understanding service discovery
 
 Service discovery helps us access a service by its name within the Kubernetes/OpenShift cluster.
