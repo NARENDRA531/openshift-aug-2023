@@ -12,6 +12,18 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scrip
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+Downloading https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
+Verifying checksum... Done.
+Preparing to install helm into /usr/local/bin
+[sudo] password for jegan: 
+helm installed into /usr/local/bin/helm  
+</pre>
 
 ## Lab - Understanding service discovery
 
