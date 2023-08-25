@@ -154,5 +154,6 @@ Step 7 - Create a route for AMQ Broker
 Step 8 - Accessing Red Hat AMQ Management Console from browser
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/7155613f-b2bb-4c9b-bcad-83cd0f4a93ba)
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/74faf6ef-1ef7-4377-8cc8-5eba3c500ee1)
 
 
