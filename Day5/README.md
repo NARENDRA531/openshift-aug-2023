@@ -693,3 +693,86 @@ Removing intermediate container 6b264b757de7
 Successfully built 4765e1707c51
 Successfully tagged tektutor/ansible-ubuntu-node:latest  
 </pre>
+
+## Lab - Creating ubuntu1 and ubuntu2 ansible node containers from our custom docker image
+```
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ubuntu-ansible]
+└─$ docker images     
+REPOSITORY                                   TAG            IMAGE ID       CREATED         SIZE
+tektutor/ansible-ubuntu-node                 latest         4765e1707c51   4 minutes ago   220MB
+tektutor/hello-ms-build                      latest         fd7be7f2409e   28 hours ago    408MB
+<none>                                       <none>         929e75d34295   28 hours ago    761MB
+nginx                                        latest         eea7b3dcba7e   9 days ago      187MB
+ubuntu                                       22.04          01f29b872827   3 weeks ago     77.8MB
+registry.access.redhat.com/ubi8/openjdk-11   latest         998e41ed2c35   5 weeks ago     391MB
+ubuntu                                       16.04          b6f507652425   24 months ago   135MB
+maven                                        3.6.3-jdk-11   e23b595c92ad   2 years ago     658MB
+google/pause                                 latest         f9d5de079539   9 years ago     240kB
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ubuntu-ansible]
+└─$ docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node:latest 
+c901959cc158aa2f8007f8d48b44a55973656d0fe3eb060ae751cbc912e50ced
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ubuntu-ansible]
+└─$ docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node:latest
+a6c28fa2693acf56c15dff06523cc84598da5a7203542bbc5b8559e13d8a5a31
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ubuntu-ansible]
+└─$ docker ps                                                                                                
+CONTAINER ID   IMAGE                                 COMMAND               CREATED          STATUS          PORTS                                                                          NAMES
+a6c28fa2693a   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   7 seconds ago    Up 7 seconds    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+c901959cc158   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   21 seconds ago   Up 20 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ubuntu-ansible]
+└─$ ssh -p 2001 root@localhost
+The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
+ED25519 key fingerprint is SHA256:kQE83fLfw0nAku7Jc09csIjjk0MQ7i1uJSWaYPyl/DI.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2001' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 6.3.0-kali1-amd64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# exit
+logout
+Connection to localhost closed.
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ubuntu-ansible]
+└─$ ssh -p 2002 root@localhost
+The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+ED25519 key fingerprint is SHA256:kQE83fLfw0nAku7Jc09csIjjk0MQ7i1uJSWaYPyl/DI.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: [hashed name]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2002' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 6.3.0-kali1-amd64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# exit
+logout
+Connection to localhost closed.
+</pre>
