@@ -1,5 +1,61 @@
 - name: This ansible playbook will deploy wordpress multi-application into Red Hat OpenShift
   hosts: all
+  vars:
+    - K8S_AUTH_KUBECONFIG=sha256~ucVXAFty4Xi1IMxFJgTpJVth-ZX4kqpO8OaX8KuOYPI 
   tasks:
-  - name: Deploy wordpress into Openshift
-    shell: ./deploy-wordpress.sh
+  - name: Create the wordpress configmap 
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-cm.yml
+
+  - name: Create the wordpress secrets 
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-secrets.yml
+
+  - name: Create the mysql persistent volume 
+    kubernetes.core.k8s:
+      state: present
+      src: mysql-pv.yml
+
+  - name: Create the mysql persistent volume claim 
+    kubernetes.core.k8s:
+      state: present
+      src: mysql-pvc.yml
+
+  - name: Create the mysql deployment 
+    kubernetes.core.k8s:
+      state: present
+      src: mysql-deploy.yml
+
+  - name: Create the mysql service 
+    kubernetes.core.k8s:
+      state: present
+      src: mysql-svc.yml
+
+  - name: Create the wordpress persistent volume
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-pv.yml
+
+  - name: Create the wordpress persistent volume claim
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-pvc.yml
+
+  - name: Create the wordpress deployment 
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-deploy.yml
+
+  - name: Create the wordpress service 
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-svc.yml
+
+  - name: Create the wordpress route 
+    kubernetes.core.k8s:
+      state: present
+      src: wordpress-svc.yml
+
+
