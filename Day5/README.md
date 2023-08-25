@@ -127,6 +127,9 @@ Step 3 - As Administrator, click on Storage --> Persistent Volumes --> Create Pe
 Step 4 - As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d8b6e8bb-e4ef-4ef4-b5e4-be8eea78993b)
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/8cdc57a5-e679-479a-88a7-891da318c43d)
+
+
 Step 5 - Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/fa071491-f021-4249-8f73-b83eb8955d28)
 
