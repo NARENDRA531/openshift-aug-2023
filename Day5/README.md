@@ -12,6 +12,17 @@ There are critical components
 2. Ingress Controller
 3. Load Balancer ( nginx or haproxy )
 
+You need to update the base url as per the output you see for the below command
+```
+oc describe ingresscontroller/default -n openshift-ingress-operator | grep Domain:
+```
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day5/ingress]
+└─$ oc describe ingresscontroller/default -n openshift-ingress-operator | grep Domain:
+  Domain:                  apps.ocp.tektutor.labs   
+</pre>
+
 ```
 cd ~
 cd openshift-may-2023
