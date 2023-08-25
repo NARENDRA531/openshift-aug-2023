@@ -151,6 +151,8 @@ Step 6 - Create an ActiveMQArtemises broker instance
 Step 7 - Create a route for AMQ Broker
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/86ee935f-03df-4cda-8b24-164c414e6ec3)
 
+Step 8 - Accessing Red Hat AMQ Management Console from browser
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/7155613f-b2bb-4c9b-bcad-83cd0f4a93ba)
 
 
 
