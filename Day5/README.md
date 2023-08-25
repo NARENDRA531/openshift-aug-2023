@@ -158,3 +158,10 @@ Step 8 - Accessing Red Hat AMQ Management Console from browser
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/89c50286-10ae-4646-9f8a-bb345c8ac45a)
 
+Step 9 - Retrieving Login Credentials
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b2af90bb-1781-49df-b19d-7b6d2d896df9)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b3cf5c41-b118-406e-9f9b-0893f28762de)
+
+Step 10 - Login to Red Hat AMQ Management Console using
+AMQ_USER and AMQ_PASSWORD from the secret
