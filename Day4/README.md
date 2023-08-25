@@ -11,6 +11,8 @@ git clone https://github.com/tektutor/openshift-aug-2023
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+
+helm version
 ```
 Expected output
 <pre>
@@ -23,6 +25,11 @@ Verifying checksum... Done.
 Preparing to install helm into /usr/local/bin
 [sudo] password for jegan: 
 helm installed into /usr/local/bin/helm  
+
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm version  
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+version.BuildInfo{Version:"v3.12.3", GitCommit:"3a31588ad33fe3b89af5a2a54ee1d25bfe6eaa5e", GitTreeState:"clean", GoVersion:"go1.20.7"}  
 </pre>
 
 ## Lab - Understanding service discovery
