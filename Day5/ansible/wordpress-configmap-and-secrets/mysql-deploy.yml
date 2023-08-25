@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: mysql
-    tier: backend 
   name: mysql
 spec:
   selector:
@@ -17,7 +16,7 @@ spec:
       volumes:
       - name: mysql-storage
         persistentVolumeClaim:
-          claimName: {{ .Values.mysqlPvcName }} 
+          claimName: mysql-pvc-jegan # Replace 'jegan' with your name
       containers:
       - name: mysql
         image: bitnami/mariadb:latest
@@ -28,13 +27,13 @@ spec:
 
         env:
         - name: MARIADB_ROOT_PASSWORD
-          valueFrom:
+          valueFrom: 
             secretKeyRef:
-              name: wordpress-secrets 
+              name: wordpress-secrets
               key: password
 
         - name: MARIADB_DATABASE
           valueFrom:
-            configMapKeyRef:
-              name: wordpress-configmap
-              key: db_name
+            configMapKeyRef: 
+              name: wordpress-cm
+              key: database 

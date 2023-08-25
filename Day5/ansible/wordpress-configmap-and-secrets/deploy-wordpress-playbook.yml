@@ -1,0 +1,5 @@
+- name: This ansible playbook will deploy wordpress multi-application into Red Hat OpenShift
+  hosts: all
+  tasks:
+  - name: Deploy wordpress into Openshift
+    shell: ./deploy-wordpress.sh

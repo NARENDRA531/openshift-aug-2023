@@ -7,7 +7,7 @@ metadata:
 
 spec:
   rules:
-  - host: tektutor.apps.ocp4.tektutor.org.ocp
+  - host: tektutor.apps.ocp.tektutor.labs
     http:
       paths:
       - backend:

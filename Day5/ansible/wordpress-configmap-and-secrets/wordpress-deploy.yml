@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: wordpress
-    tier: frontend
   name: wordpress
 spec:
   selector:
@@ -17,7 +16,7 @@ spec:
       volumes:
       - name: wordpress-storage
         persistentVolumeClaim:
-          claimName: {{ .Values.wordpressPvcName }} 
+          claimName: wordpress-pvc-jegan # Replace 'jegan' with your name
       containers:
       - image: bitnami/wordpress:latest
         name: wordpress
@@ -26,32 +25,29 @@ spec:
         - name: wordpress-storage
           mountPath: /bitnami/wordpress
         env:
+        - name: MYSQL_CLIENT_DATABASE_HOST
+          value: mysql 
+
+        - name: MYSQL_CLIENT_DATABASE_ROOT_USER
+          value: root
+
+        - name: MYSQL_CLIENT_DATABASE_ROOT_PASSWORD
+          value: root@123
+
+        - name: MYSQL_CLIENT_DATABASE_NAME
+          value: wordpress
+
         - name: WORDPRESS_DATABASE_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: wordpress-configmap
-              key: db_name
+          value: wordpress
 
         - name: WORDPRESS_DATABASE_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: wordpress-configmap
-              key: db_host
+          value: mysql 
 
         - name: WORDPRESS_DATABASE_PORT_NUMBER
-          valueFrom:
-            configMapKeyRef:
-              name: wordpress-configmap
-              key: db_port
+          value: "3306"
 
         - name: WORDPRESS_DATABASE_USER
-          valueFrom:
-            secretKeyRef:
-              name: wordpress-secrets
-              key: user 
+          value: root
 
         - name: WORDPRESS_DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: wordpress-secrets
-              key: password 
+          value: root@123

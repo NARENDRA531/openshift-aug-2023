@@ -5,8 +5,8 @@
 mysqlDiskSize: 200Mi
 wordpressDiskSize: 200Mi
 nfsServerIp: 192.168.1.108
-nfsMysqlPath: /var/nfs/mysql
-nfsWordpressPath: /var/nfs/wordpress
+nfsMysqlPath: /mnt/nfs/mysql
+nfsWordpressPath: /mnt/nfs/wordpress
 
 mysqlPvName: mysql-pv-jegan
 mysqlPvcName: mysql-pvc-jegan
