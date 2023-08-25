@@ -17,7 +17,7 @@ When prompts for Administrator password, you may type 'rps@12345' without quotes
 cd ~/openshift-aug-2023
 git pull
 
-cd Day5/helm/wordpress
+cd Day4/helm/wordpress
 helm package wordpress
 helm install wp wordpress-0.1.0.tgz
 helm list
