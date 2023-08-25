@@ -134,6 +134,33 @@ NAME     	NAMESPACE	REVISION	UPDATED                                	STATUS  	CH
 wordpress	jegan    	2       	2023-08-25 11:28:58.668274502 +0530 IST	deployed	wordpress-0.1.1	1.16.0       
 </pre>
 
+## Lab - Rolling back to previous version of wordpress using Helm
+```
+helm list
+helm rollback wordpress
+helm list
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm/wordpress]
+└─$ helm list                  
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+NAME     	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART          	APP VERSION
+wordpress	jegan    	2       	2023-08-25 11:28:58.668274502 +0530 IST	deployed	wordpress-0.1.1	1.16.0     
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm/wordpress]
+└─$ helm rollback wordpress    
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+Rollback was a success! Happy Helming!
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm/wordpress]
+└─$ helm list              
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+NAME     	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART          	APP VERSION
+wordpress	jegan    	3       	2023-08-25 11:33:56.906038023 +0530 IST	deployed	wordpress-0.1.0	1.16.0       
+</pre>
+
 ## Lab - Understanding service discovery
 
 Service discovery helps us access a service by its name within the Kubernetes/OpenShift cluster.
