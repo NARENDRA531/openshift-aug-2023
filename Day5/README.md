@@ -151,7 +151,7 @@ Step 6 - Create an ActiveMQArtemises broker instance
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b76afad4-c453-4149-9c41-6c50d4f4e75f)
 
-![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/f4d4e64c-0585-43e8-a07e-0f93beb1acb0)
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/40beef9e-8ba0-4d38-aef9-36b2799f6b8b)
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/457ad9e0-85d9-49c9-b2c9-46a7b0c3a0be)
 
