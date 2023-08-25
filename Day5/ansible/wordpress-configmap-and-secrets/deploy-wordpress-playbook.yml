@@ -1,5 +1,5 @@
 - name: This ansible playbook will deploy wordpress multi-application into Red Hat OpenShift
-  hosts: all
+  hosts: localhost 
   tasks:
   - name: Create the wordpress configmap 
     kubernetes.core.k8s:
