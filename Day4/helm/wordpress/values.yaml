@@ -1,0 +1,17 @@
+# Default values for wordpress.
+# This is a YAML_formatted file.
+# Declare variables to be passed into your templates.
+
+mysqlDiskSize: 200Mi
+wordpressDiskSize: 200Mi
+nfsServerIp: 192.168.1.108
+nfsMysqlPath: /var/nfs/mysql
+nfsWordpressPath: /var/nfs/wordpress
+
+mysqlPvName: mysql-pv-jegan
+mysqlPvcName: mysql-pvc-jegan
+mysqlPvLabel: jegan
+
+wordpressPvName: wordpress-pv-jegan
+wordpressPvcName: wordpress-pvc-jegan
+wordpressPvLabel: jegan

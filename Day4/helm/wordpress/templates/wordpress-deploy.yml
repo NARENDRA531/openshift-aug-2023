@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wordpress
+  name: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      volumes:
+      - name: wordpress-storage
+        persistentVolumeClaim:
+          claimName: {{ .Values.wordpressPvcName }} 
+      containers:
+      - image: bitnami/wordpress:latest
+        name: wordpress
+
+        volumeMounts:
+        - name: wordpress-storage
+          mountPath: /bitnami/wordpress
+        env:
+        - name: WORDPRESS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-configmap
+              key: db_name
+
+        - name: WORDPRESS_DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-configmap
+              key: db_host
+
+        - name: WORDPRESS_DATABASE_PORT_NUMBER
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-configmap
+              key: db_port
+
+        - name: WORDPRESS_DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: wordpress-secrets
+              key: user 
+
+        - name: WORDPRESS_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: wordpress-secrets
+              key: password 

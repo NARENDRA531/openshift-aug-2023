@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.wordpressPvName }} 
+  labels:
+    name: {{ .Values.wordpressPvLabel }} 
+spec:
+  capacity:
+    storage: {{ .Values.wordpressDiskSize }} 
+  accessModes: 
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: {{ .Values.nfsServerIp }} 
+    path: {{ .Values.nfsWordpressPath }} 
