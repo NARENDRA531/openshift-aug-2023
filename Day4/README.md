@@ -6,6 +6,36 @@ cd ~
 git clone https://github.com/tektutor/openshift-aug-2023
 ```
 
+## Lab - Understanding service discovery
+
+Service discovery helps us access a service by its name within the Kubernetes/OpenShift cluster.
+
+Let's us list the services
+```
+oc new-
+oc get svc
+oc describe svc/nginx
+```
+To test the service discovery, let's create a utility pod
+
+oc create deploy hello --image=tektutor/spring-tektutor-helloms:latest
+
+Let's get inside the hello pod
+
+oc rsh deploy/hello
+
+Let's see if we are able to access the nginx service by its name within the hello pod
+
+curl http://nginx:8080
+
+In the above url, nginx is the name of NodePort service. You are expected to see response from the nginx pod.
+
+You may also check the /etc/resolv.conf content within the hello pod
+
+cat /etc/resolv.conf
+
+You will see a nameserver IP, that nameserver is the one which resolves the nginx service name to its corresponding IP address.
+
 ## Multi-stage Dockerfile
 ```
 https://github.com/tektutor/spring-ms.git
