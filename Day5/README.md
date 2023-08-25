@@ -116,9 +116,11 @@ Note
 Let's begin
 <pre>
 1. Open the Red Hat OpenShift webconsole
-2. As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
-3. Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
-4. You need to create two Persistent Volumes, otherwise your 
+2. As Administrator, create two Persistent Volumes as AMQ Broker persists data in PV.
+3. As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume    
+4. As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
+5. Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
+6. 
 </pre>
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/0ca1b9e4-fd86-4458-849c-58e0d73428ac)
@@ -138,9 +140,9 @@ Let's begin
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/001d66a1-2f3e-4c20-956c-4af842169c76)
 
-
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b76afad4-c453-4149-9c41-6c50d4f4e75f)
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/f4d4e64c-0585-43e8-a07e-0f93beb1acb0)
 
 
 
