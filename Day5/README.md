@@ -1,5 +1,59 @@
 # Day 5
 
+## Ingress
+
+There are critical components
+1. Ingress rule ( user-defined )
+2. Ingress Controller
+3. Load Balancer ( nginx or haproxy )
+
+```
+cd ~
+cd openshift-may-2023
+cd Day5/ingress
+
+oc create deploy nginx --image=bitnami/nginx:latest --replicas=3
+oc expose deploy/nginx --port=8080
+
+oc create deploy hello --image=tektutor/spring-tektutor-helloms:latest --replicas=3
+oc expose deploy/nginx --port=8080
+
+oc apply -f ingress.yml
+oc get ingress
+oc describe ingress tektutor
+```
+
+Let's test if the ingress works as expected
+```
+jegan@tektutor:~/openshift-may-2023/Day5/ingress$ curl tektutor.apps.ocp4.tektutor.org.ocp/nginx
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+jegan@tektutor:~/openshift-may-2023/Day5/ingress$ curl tektutor.apps.ocp4.tektutor.org.ocp/hello
+Hello Java Microsrvice !
+```
+
 ## Lab - Deploying an application using github repo
 
 Deploying using docker strategy i.e using Dockerfile
