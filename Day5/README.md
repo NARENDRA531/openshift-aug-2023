@@ -126,7 +126,8 @@ Step 1 - Open the Red Hat OpenShift webconsole
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/9d4116a0-9bc6-473b-8996-64f4a2a29a32)
 
 Step 2 - As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your first PV as shown in the screenshot below  
-![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/0ca1b9e4-fd86-4458-849c-58e0d73428ac)
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/242f0348-98f0-4fc8-8562-d259ad3dd9bb)
+
 
 Step 3 - As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your second PV as shown in the screenshot below 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/3a89fe1c-0270-4bea-ace0-eaff7f30b76a)
