@@ -16,7 +16,7 @@ oc create deploy nginx --image=bitnami/nginx:latest --replicas=3
 oc expose deploy/nginx --port=8080
 
 oc create deploy hello --image=tektutor/spring-tektutor-helloms:latest --replicas=3
-oc expose deploy/nginx --port=8080
+oc expose deploy/hello --port=8080
 
 oc apply -f ingress.yml
 oc get ingress
