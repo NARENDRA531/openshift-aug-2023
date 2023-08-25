@@ -163,5 +163,12 @@ Step 9 - Retrieving Login Credentials
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b3cf5c41-b118-406e-9f9b-0893f28762de)
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b031f0d8-839b-4b26-a7e7-280e29c21318)
+
 Step 10 - Login to Red Hat AMQ Management Console using
 AMQ_USER and AMQ_PASSWORD from the secret
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/58fdcb96-a995-4034-a760-7b0de2cb7cbf)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d4830c6c-5bf0-4f28-b5ba-acf49be4b83f)
+
