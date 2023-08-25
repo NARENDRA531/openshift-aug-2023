@@ -2,6 +2,11 @@
 
 ## Ingress
 
+You may find this blog interesting
+<pre>
+https://medium.com/@jegan_50867/redhat-openshift-ingress-e91f27a35773   
+</pre>
+
 There are critical components
 1. Ingress rule ( user-defined )
 2. Ingress Controller
