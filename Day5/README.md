@@ -1,7 +1,6 @@
 # Day 5
 
 ## Ingress
-
 You may find this blog interesting
 <pre>
 https://medium.com/@jegan_50867/redhat-openshift-ingress-e91f27a35773   
