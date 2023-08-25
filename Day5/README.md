@@ -172,3 +172,4 @@ AMQ_USER and AMQ_PASSWORD from the secret
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d4830c6c-5bf0-4f28-b5ba-acf49be4b83f)
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/71a30d6c-b62e-4196-be11-94ececa57500)
