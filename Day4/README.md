@@ -85,6 +85,55 @@ REVISION: 1
 TEST SUITE: None  
 </pre>
 
+## Lab - Helm wordpress upgrade
+You need to add some to the wordpress-deploy.yml and mysql-deploy.yml and bump up the Chart.yaml version from 0.1.0 to 0.1.1 before proceeding with the below commands.
+
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day4/helm
+ls
+helm package wordpress
+ls
+helm upgrade wordpress wordpress-0.1.1.tgz
+helm list 
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm package wordpress                    
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+Successfully packaged chart and saved it to: /home/jegan/openshift-aug-2023/Day4/helm/wordpress-0.1.1.tgz
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ ls
+wordpress  wordpress-0.1.0.tgz  wordpress-0.1.1.tgz
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm list             
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+NAME     	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART          	APP VERSION
+wordpress	jegan    	1       	2023-08-25 11:24:37.308055202 +0530 IST	deployed	wordpress-0.1.0	1.16.0     
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm upgrade wordpress wordpress-0.1.1.tgz
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+Release "wordpress" has been upgraded. Happy Helming!
+NAME: wordpress
+LAST DEPLOYED: Fri Aug 25 11:28:58 2023
+NAMESPACE: jegan
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm list                                 
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+NAME     	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART          	APP VERSION
+wordpress	jegan    	2       	2023-08-25 11:28:58.668274502 +0530 IST	deployed	wordpress-0.1.1	1.16.0       
+</pre>
+
 ## Lab - Understanding service discovery
 
 Service discovery helps us access a service by its name within the Kubernetes/OpenShift cluster.
