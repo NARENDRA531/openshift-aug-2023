@@ -130,7 +130,8 @@ Step 2 - As Administrator, click on Storage --> Persistent Volumes --> Create Pe
 
 
 Step 3 - As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your second PV as shown in the screenshot below 
-![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/3a89fe1c-0270-4bea-ace0-eaff7f30b76a)
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/3972d4e7-a752-49d2-b60d-9eb043ff444b)
+
 
 Step 4 - As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d8b6e8bb-e4ef-4ef4-b5e4-be8eea78993b)
