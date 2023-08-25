@@ -156,4 +156,5 @@ Step 8 - Accessing Red Hat AMQ Management Console from browser
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/74faf6ef-1ef7-4377-8cc8-5eba3c500ee1)
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/89c50286-10ae-4646-9f8a-bb345c8ac45a)
 
