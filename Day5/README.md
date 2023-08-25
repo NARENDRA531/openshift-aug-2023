@@ -104,3 +104,38 @@ helm package wordpress
 helm install wp wordpress-0.1.0.tgz
 helm list
 ```
+
+## Lab - Deploying Red Hat JBoss AMQ 7 into Red Hat OpenShift Cluster
+
+Note 
+<pre>
+- Only one person per OpenShift cluster can do this.
+- Whoever is interested in installing the Operator, kindly leave a message via WebEx and let other participants know about the same to avoid conflicts, thanks!
+</pre>
+
+Let's begin
+<pre>
+1. Open the Red Hat OpenShift webconsole
+2. As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
+3. Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)"
+</pre>
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d8b6e8bb-e4ef-4ef4-b5e4-be8eea78993b)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043
+/99087804-0b03-4185-9058-050a3f4da81a)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d23e0375-0614-41a9-87a1-f22c37f9a428)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/81b25df8-23d0-4a03-82b6-fe622974b601)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/1baecc4b-ccf8-4ebd-bad4-2e479602dee9)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/001d66a1-2f3e-4c20-956c-4af842169c76)
+
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/b76afad4-c453-4149-9c41-6c50d4f4e75f)
+
+
+
+
+
