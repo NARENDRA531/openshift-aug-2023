@@ -32,6 +32,33 @@ WARNING: Kubernetes configuration file is group-readable. This is insecure. Loca
 version.BuildInfo{Version:"v3.12.3", GitCommit:"3a31588ad33fe3b89af5a2a54ee1d25bfe6eaa5e", GitTreeState:"clean", GoVersion:"go1.20.7"}  
 </pre>
 
+
+## Lab - Creating a helm chart that uses Parameters
+```
+cd ~/openshift-aug-2023
+git pull
+cd Day4/helm
+rm wordpress-0.1.0.tgz
+helm package wordpress
+ls
+```
+
+Expected output
+<pre>
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ pwd
+/home/jegan/openshift-aug-2023/Day4/helm
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ helm package wordpress
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/jegan/.kube/config
+Successfully packaged chart and saved it to: /home/jegan/openshift-aug-2023/Day4/helm/wordpress-0.1.0.tgz
+                                                                                                                
+┌──(jegan㉿tektutor.org)-[~/openshift-aug-2023/Day4/helm]
+└─$ ls
+wordpress  wordpress-0.1.0.tgz
+</pre>
+
 ## Lab - Understanding service discovery
 
 Service discovery helps us access a service by its name within the Kubernetes/OpenShift cluster.
