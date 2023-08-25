@@ -123,6 +123,8 @@ Let's begin
 6. Create an ActiveMQArtemises broker instance
 </pre>
 
+![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/9d4116a0-9bc6-473b-8996-64f4a2a29a32)
+
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/0ca1b9e4-fd86-4458-849c-58e0d73428ac)
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/3a89fe1c-0270-4bea-ace0-eaff7f30b76a)
