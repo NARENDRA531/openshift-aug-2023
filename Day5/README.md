@@ -122,18 +122,23 @@ Let's begin
 5. Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
 6. Create an ActiveMQArtemises broker instance
 </pre>
-
+Step 1 - Open the Red Hat OpenShift webconsole
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/9d4116a0-9bc6-473b-8996-64f4a2a29a32)
 
+Step 2 - As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your first PV as shown in the screenshot below  
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/0ca1b9e4-fd86-4458-849c-58e0d73428ac)
 
+Step 3 - As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your second PV as shown in the screenshot below 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/3a89fe1c-0270-4bea-ace0-eaff7f30b76a)
 
+Step 4 - As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d8b6e8bb-e4ef-4ef4-b5e4-be8eea78993b)
 
+Step 5 - Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043
 /99087804-0b03-4185-9058-050a3f4da81a)
 
+Step 6 - Create an ActiveMQArtemises broker instance
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/d23e0375-0614-41a9-87a1-f22c37f9a428)
 
 ![image](https://github.com/tektutor/openshift-aug-2023/assets/12674043/81b25df8-23d0-4a03-82b6-fe622974b601)
