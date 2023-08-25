@@ -116,8 +116,8 @@ Note
 Let's begin
 <pre>
 1. Open the Red Hat OpenShift webconsole
-2. As Administrator, create two Persistent Volumes as AMQ Broker persists data in PV.
-3. As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume    
+2. As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your first PV as shown in the screenshot below  
+3. As Administrator, click on Storage --> Persistent Volumes --> Create Persistent Volume and create your second PV as shown in the screenshot below     
 4. As Administrator, Click on Operators --> Operator Hub, search for "AMQ Broker"
 5. Select "Red Hat Integration - AMQ Broker for RHEL 8(Multi-arch)" and install accepting default options
 6. Create an ActiveMQArtemises broker instance
